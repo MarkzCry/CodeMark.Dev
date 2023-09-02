@@ -1,0 +1,88 @@
+/* Your existing CSS code */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #92d6ed, #cd81da);
+    font-family: 'Open Sans', sans-serif;
+}
+
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #000000;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar {
+    background: #E6E6FA;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    background: #000000;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* CSS for YouTube button */
+footer a {
+    margin-top: 10px; /* Add space between the text and the button */
+    display: inline-block; /* Make the button inline */
+    background-color: #FF0000; /* YouTube red */
+    color: white;
+    text-align: center;
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+}
+
+footer a:hover {
+    background-color: #CC0000; /* Darker red on hover */
+}
