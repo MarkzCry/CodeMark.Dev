@@ -1,44 +1,62 @@
-/* Add these styles for the CodeMark Links section */
-.links {
-    list-style: none;
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #92d6ed, #cd81da);
+    font-family: 'Open Sans', sans-serif;
+}
+
+body, h1, h2, p {
+    margin: 0;
     padding: 0;
 }
 
-.links li {
-    margin: 10px 0;
+header {
+    background: #000000;
+    color: white;
+    text-align: center;
+    padding: 1rem;
 }
 
-.links a {
+header h1 {
+    font-size: 2rem;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    color: white;
     text-decoration: none;
-    color: #333;
-    display: inline-flex;
-    align-items: center;
 }
 
-.links img {
-    width: 20px; /* Adjust icon size as needed */
-    margin-right: 10px; /* Add space between icon and text */
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: 20px;
 }
 
-/* Style the Snapchat section */
-.sidebar h2:nth-of-type(2) {
-    margin-top: 20px; /* Add space between CodeMark Links and Snapchat section */
+.content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar p {
-    font-weight: bold;
-    margin: 10px 0;
+.sidebar {
+    background: #E6E6FA;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Style Snapchat QR code */
-.sidebar img {
-    max-width: 100%;
-    height: auto;
-    display: block; /* Center the image horizontally */
-    margin: 10px auto; /* Add space around the QR code */
-}
-
-/* Adjust spacing and style of the footer */
 footer {
     background: #000000;
     color: white;
@@ -48,7 +66,6 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 1; /* Ensure it's above the rest of the content */
 }
 
 /* CSS for YouTube button */
