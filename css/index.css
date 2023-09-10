@@ -64,6 +64,8 @@ main {
     list-style: none;
     padding: 0;
     background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .links li {
