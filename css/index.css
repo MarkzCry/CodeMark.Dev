@@ -63,6 +63,7 @@ main {
 .links {
     list-style: none;
     padding: 0;
+    background: white;
 }
 
 .links li {
@@ -88,7 +89,7 @@ main {
 }
 
 .snapchat img {
-    max-width: 100%;
+    max-width: 65%;
     height: auto;
     display: block; /* Center the image horizontally */
     margin: 10px auto; /* Add space around the QR code */
