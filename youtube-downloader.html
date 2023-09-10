@@ -58,8 +58,12 @@
         });
 
         function validate(url) {
-            const ytRegex = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(\?\S*)?$/;
-            return ytRegex.test(url);
+    // A more robust regular expression for YouTube URL validation
+    const ytRegex = /^(?:(?:https?:)?\/\/)?(?:www\.)?(?:m\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?([a-zA-Z0-9_-]{11})/;
+
+    return ytRegex.test(url);
+}
+
         }
     </script>
     <footer>
