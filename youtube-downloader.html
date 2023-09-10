@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,20 +35,32 @@
         </div>
     </div>
     <script>
-        // JavaScript code for YouTube video downloader functionality
-        const videoUrlInput = document.getElementById('videoUrl');
-        const formatSelect = document.getElementById('format');
         const downloadButton = document.getElementById('downloadButton');
 
         downloadButton.addEventListener('click', () => {
+            const videoUrlInput = document.getElementById('videoUrl');
+            const formatSelect = document.getElementById('format');
+            
             const videoUrl = videoUrlInput.value;
             const selectedFormat = formatSelect.value;
             
-            if (videoUrl && selectedFormat) {
-                // You can add code here to handle the video download based on the selected format
-                alert(`Downloading ${selectedFormat.toUpperCase()} for: ${videoUrl}`);
+            if (!validate(videoUrl)) {
+                alert("Invalid YouTube URL");
+                return;
             }
+
+            // Construct the download URL and redirect the user
+            const filename = videoUrl.replace(/[^a-zA-Z0-9-_]/g, "_"); // Sanitize filename
+            const downloadUrl = `https://popcat.xyz/download?url=${videoUrl}&filter=${selectedFormat}&filename=${filename}`;
+            
+            // Redirect the user to the download URL
+            window.location.href = downloadUrl;
         });
+
+        function validate(url) {
+            const ytRegex = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(\?\S*)?$/;
+            return ytRegex.test(url);
+        }
     </script>
     <footer>
         <p>&copy; Markel R.</p>
