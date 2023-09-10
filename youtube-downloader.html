@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>YouTube Downloader</title>
+    <link rel="icon" type="image/jpeg" href="cat-icon.jpg">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Open+Sans:400,700&display=swap">
+    <meta property="og:title" content="YouTube Downloader">
+    <meta property="og:description" content="Download YouTube Videos as MP4 and MP3">
+    <meta property="og:image" content="cat-icon.jpg">
+    <meta property="og:url" content="https://codemark.app/youtube-downloader">
+</head>
+<body>
+    <header>
+        <h1>YouTube Downloader</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="tools">Tools</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <!-- YouTube Downloader Section -->
+        <div class="youtube-downloader">
+            <h2>Download YouTube Videos</h2>
+            <p>Paste the YouTube video URL below and select the format:</p>
+            <input type="text" id="videoUrl" placeholder="Enter YouTube Video URL">
+            <select id="format">
+                <option value="mp4">MP4</option>
+                <option value="mp3">MP3</option>
+            </select>
+            <button id="downloadButton">Download</button>
+        </div>
+    </div>
+    <script>
+        // JavaScript code for YouTube video downloader functionality
+        const videoUrlInput = document.getElementById('videoUrl');
+        const formatSelect = document.getElementById('format');
+        const downloadButton = document.getElementById('downloadButton');
+
+        downloadButton.addEventListener('click', () => {
+            const videoUrl = videoUrlInput.value;
+            const selectedFormat = formatSelect.value;
+            
+            if (videoUrl && selectedFormat) {
+                // You can add code here to handle the video download based on the selected format
+                alert(`Downloading ${selectedFormat.toUpperCase()} for: ${videoUrl}`);
+            }
+        });
+    </script>
+    <footer>
+        <p>&copy; Markel R.</p>
+    </footer>
+</body>
+</html>
