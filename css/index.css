@@ -1,3 +1,5 @@
+/* Your updated CSS code */
+
 html, body {
     height: 100%;
     margin: 0;
@@ -57,6 +59,43 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Style CodeMark Links section */
+.links {
+    list-style: none;
+    padding: 0;
+}
+
+.links li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center; /* Align text and icons vertically */
+}
+
+.links a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 10px; /* Add space between icon and text */
+}
+
+.links img {
+    width: 20px; /* Adjust icon size as needed */
+}
+
+/* Style Snapchat section */
+.snapchat {
+    margin-top: 20px; /* Add space between CodeMark Links and Snapchat section */
+    text-align: center; /* Center text */
+}
+
+.snapchat img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Center the image horizontally */
+    margin: 10px auto; /* Add space around the QR code */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Rounded corners */
+}
+
 footer {
     background: #000000;
     color: white;
@@ -66,6 +105,7 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 1; /* Ensure it's above the rest of the content */
 }
 
 /* CSS for YouTube button */
