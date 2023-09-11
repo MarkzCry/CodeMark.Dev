@@ -98,6 +98,35 @@ main {
     border-radius: 5px; /* Rounded corners */
 }
 
+/* Contact Info Section */
+.contact-info {
+    list-style: none;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center; /* Align text and icons vertically */
+}
+
+.contact-info a {
+    color: #333;
+    margin-left: 10px; /* Add space between icon and text */
+}
+
+.contact-info img {
+    width: 20px; /* Adjust icon size as needed */
+}
+
+/* Add space between CodeMark Links and Contact Info section */
+.links {
+    margin-bottom: 20px;
+}
+
 footer {
     background: #000000;
     color: white;
