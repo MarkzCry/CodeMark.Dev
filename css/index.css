@@ -75,7 +75,6 @@ main {
 }
 
 .links a {
-    text-decoration: none;
     color: #333;
     margin-left: 10px; /* Add space between icon and text */
 }
