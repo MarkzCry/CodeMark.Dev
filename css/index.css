@@ -94,8 +94,6 @@ main {
     height: 250px;
     display: block; /* Center the image horizontally */
     margin: 10px auto; /* Add space around the QR code */
-    border: 1px solid #ccc; /* Add border */
-    border-radius: 5px; /* Rounded corners */
 }
 
 /* Contact Info Section */
