@@ -87,6 +87,7 @@ main {
 .snapchat {
     margin-top: 20px; /* Add space between CodeMark Links and Snapchat section */
     text-align: center; /* Center text */
+    background: #e6e6e6;
 }
 
 .snapchat img {
