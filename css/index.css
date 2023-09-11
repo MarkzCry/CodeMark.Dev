@@ -92,7 +92,7 @@ main {
 
 .snapchat img {
     max-width: 100%;
-    height: 100px;
+    height: 250px;
     display: block; /* Center the image horizontally */
     margin: 10px auto; /* Add space around the QR code */
     border: 1px solid #ccc; /* Add border */
