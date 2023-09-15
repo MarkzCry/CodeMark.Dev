@@ -52,13 +52,6 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar {
-    background: #E6E6FA;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
 /* Style CodeMark Links section */
 .links {
     list-style: none;
@@ -91,7 +84,7 @@ main {
 
 .snapchat img {
     max-width: 100%;
-    height: 250px;
+    height: auto;
     display: block; /* Center the image horizontally */
     margin: 10px auto; /* Add space around the QR code */
 }
@@ -152,4 +145,49 @@ footer a {
 
 footer a:hover {
     background-color: #CC0000; /* Darker red on hover */
+}
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* Hide the navigation menu by default */
+    }
+
+    /* Style the menu button */
+    .menu-button {
+        display: block; /* Show the button */
+        cursor: pointer;
+    }
+
+    /* Style the expanded menu */
+    .menu-expanded {
+        display: block; /* Show the menu when the button is clicked */
+    }
+}
+
+main {
+    /* Existing styles */
+    margin-bottom: 60px; /* Add a margin to accommodate the footer */
+}
+
+/* Make images responsive */
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover; /* or object-fit: contain; depending on your design preferences */
+}
+
+/* Responsive Typography Example (adjust as needed) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
 }
