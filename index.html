@@ -5,7 +5,6 @@
     <link rel="icon" type="image/jpeg" href="images/cat-icon.jpg">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Open+Sans:400,700&display=swap">
-
     <meta property="og:title" content="CodeMark">
     <meta property="og:description" content="Personal website that includes other useful tools">
     <meta property="og:image" content="images/cat-icon.jpg">
@@ -52,24 +51,8 @@
                 </li>
             </ul>
         </section>
-        <!-- Contact Info Section -->
-       <section class="contact-info">
-    <h2>Contact Info</h2>
-    <ul>
-        <li>
-            <img src="phone-icon.png" alt="Phone" width="20" height="20">
-            <a href="tel:+14028608645">Call</a>
-        </li>
-        <li>
-            <img src="message-icon.png" alt="Message" width="20" height="20">
-            <a href="sms:+14028608645">Message</a>
-        </li>
-        <li>
-            <img src="email-icon.png" alt="Email" width="20" height="20">
-            <a href="mailto:recovermarkel@gmail.com">Email</a>
-        </li>
-    </ul>
-</section>
+        <!-- Twitter Widget Placeholder -->
+        <div id="twitter-widget"></div>
         <section class="snapchat">
             <h2>Snapchat</h2>
             <p>Snapchat: Code_Mark</p>
@@ -79,7 +62,25 @@
     </main>
     <footer>
         <p>&copy; Markel R.</p>
-        </a>
     </footer>
+    
+    <!-- Twitter Widget Script -->
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+        // Function to create the Twitter widget
+        function createTwitterWidget() {
+            twttr.widgets.createTimeline(
+                {
+                    sourceType: "profile",
+                    screenName: "code_mark1", // Replace with your Twitter username
+                },
+                document.getElementById("twitter-widget")
+            );
+        }
+
+        // Call the function to create the Twitter widget
+        createTwitterWidget();
+    </script>
 </body>
 </html>
+
