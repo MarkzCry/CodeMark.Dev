@@ -10,3 +10,28 @@ body, h1, h2, p {
     margin: 0;
     padding: 0;
 }
+
+header {
+    background: #000000;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
