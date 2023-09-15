@@ -69,7 +69,8 @@
     <!-- Twitter Widget Script -->
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script>
-        // Function to create the Twitter widget
+    document.addEventListener("DOMContentLoaded", function () {
+        // Your Twitter widget code here
         function createTwitterWidget() {
             twttr.widgets.createTimeline(
                 {
@@ -80,9 +81,10 @@
             );
         }
 
-        // Call the function to create the Twitter widget
         createTwitterWidget();
-    </script>
+    });
+</script>
+
 </body>
 </html>
 
