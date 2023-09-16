@@ -36,6 +36,17 @@ nav a {
     text-decoration: none;
 }
 
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .content {
     background-color: white;
     padding: 20px;
