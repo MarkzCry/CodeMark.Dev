@@ -59,8 +59,8 @@ nav a {
     max-length: 1000px;
 }
 
-.content p {
-    padding-bottom: 20px;
+.content h2 {
+    padding-top: 20px;
 }
 
 footer {
