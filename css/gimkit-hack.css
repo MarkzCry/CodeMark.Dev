@@ -63,6 +63,11 @@ nav a {
     padding-top: 20px;
 }
 
+.copy-icon {
+  width: 16px;
+  height: 16px;
+}
+
 footer {
     background: #000000;
     color: white;
