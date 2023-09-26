@@ -1,11 +1,10 @@
-/* Your updated CSS code */
-
+/* Common styles for both versions */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom right, #92d6ed, #cd81da);
     font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(to bottom right, #92d6ed, #cd81da);
 }
 
 body, h1, h2, p {
@@ -38,6 +37,7 @@ nav a {
     text-decoration: none;
 }
 
+/* Styles specific to PC version */
 main {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -148,47 +148,25 @@ footer a:hover {
     background-color: #CC0000; /* Darker red on hover */
 }
 
-/* Mobile Menu Styles */
+/* Mobile Styles */
 @media (max-width: 768px) {
-    nav ul {
-        display: none; /* Hide the navigation menu by default */
+    main {
+        padding: 20px;
+        display: block; /* Change display to block for mobile */
     }
 
-    /* Style the menu button */
-    .menu-button {
-        display: block; /* Show the button */
-        cursor: pointer;
+    .content,
+    .links,
+    .snapchat,
+    .twitter-widget,
+    .contact-info {
+        margin: 10px 0; /* Adjust spacing for mobile version */
     }
 
-    /* Style the expanded menu */
-    .menu-expanded {
-        display: block; /* Show the menu when the button is clicked */
-    }
-}
-
-main {
-    /* Existing styles */
-    margin-bottom: 60px; /* Add a margin to accommodate the footer */
-}
-
-/* Make images responsive */
-img {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover; /* or object-fit: contain; depending on your design preferences */
-}
-
-/* Responsive Typography Example (adjust as needed) */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    h2 {
-        font-size: 1.2rem;
-    }
-
-    p {
-        font-size: 0.9rem;
+    .snapchat img {
+        max-width: 80%;
+        height: auto;
+        display: block;
+        margin: 10px auto;
     }
 }
