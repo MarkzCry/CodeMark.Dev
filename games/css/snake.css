@@ -1,0 +1,83 @@
+body {
+    text-align: center;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(to bottom right, #92d6ed, #cd81da);
+}
+
+header {
+    background: #000000;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 5px;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Align items horizontally in the center */
+    justify-content: flex-start; /* Align items vertically at the top */
+    height: 100vh; /* Use the full viewport height */
+}
+
+.board {
+    margin-top: 20px;
+}
+
+/* snake.css */
+/* Style the buttons */
+button {
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+    border: none; /* Remove borders */
+    padding: 10px 20px; /* Padding for the buttons */
+    margin: 5px; /* Margin between buttons */
+    cursor: pointer; /* Add pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+    margin-bottom: 5px; /*Adds a margin to the bottom*/
+}
+
+/* Add a hover effect */
+button:hover {
+    background-color: #45a049; /* Slightly darker green on hover */
+}
+
+/* Style the canvas container */
+.container {
+    text-align: center; /* Center the contents horizontally */
+    padding-top: 20px; /* Add padding to the top of the container */
+}
+
+
+footer {
+    background: #000000;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1; /* Ensure it's above the rest of the content */
+}
