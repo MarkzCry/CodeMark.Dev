@@ -1,12 +1,7 @@
-html, body {
+html,
+body {
   height: 100%;
 }
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -14,123 +9,130 @@ body {
   color: white;
   user-select: none;
 }
-body, h1, h2, p {
-    margin: 0;
-    padding: 0;
+
+body,
+h1,
+h2,
+p {
+  margin: 0;
+  padding: 0;
 }
 
 header {
-    background: #000000;
-    color: white;
-    text-align: center;
-    padding: 1rem;
+  background: #000000;
+  color: white;
+  text-align: center;
+  padding: 1rem;
   margin-bottom: 10px;
 }
 
 header h1 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 nav ul {
-    list-style: none;
+  list-style: none;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 20px;
+  display: inline;
+  margin-right: 20px;
 }
 
 nav a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 .content {
   background-color: #323437;
-    text-align: center;
-    padding: 20px;
-    border-radius: 50px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 60%;
-    min-height: 40vh;
-    width: 50%;
-    margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 60%;
+  min-height: 40vh;
+  width: 50%;
+  margin: 0 auto;
   border: 2px solid;
-    position: relative;
+  position: relative;
   align-items: center;
   margin-bottom: 10px;
 }
 
 .sentence {
-    font-size: 24px;
-    margin-bottom: 20px;
-    opacity: 0.8;
-    transition: opacity 0.5s ease; 
-    color: white;
+  font-size: 24px;
+  margin-bottom: 20px;
+  opacity: 0.8;
+  transition: opacity 0.5s ease;
+  color: white;
 }
 
 .typed-cursor {
   font-size: 32px;
-    animation: blink-caret 1s infinite;
+  animation: blink-caret 1s infinite;
 }
 
 @keyframes blink-caret {
-    0%, 100% {
-        opacity: 0; 
-    }
-    50% {
-        opacity: 1;
-    }
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 
 .sentence-hidden {
-    opacity: 0;
-    pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
 
 #userInput {
   margin-top: 10px;
   text-align: left;
-    width: 100%;
-    font-size: 18px;
-    border: none;
-    border-radius: 50px; 
-    outline: none;
-    color: #323437;
-    background-color: #323437;
-    caret-color: #323437;
+  width: 100%;
+  font-size: 18px;
+  border: none;
+  border-radius: 50px;
+  outline: none;
+  color: #323437;
+  background-color: #323437;
+  caret-color: #323437;
 }
 
 #feedback {
-    text-align: center;
-    font-weight: bold;
-    margin-top: 10px;
-    color: #92d6ed;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #92d6ed;
 }
 
 .wpm {
-    text-align: center;
-    margin-top: 10px;
+  text-align: center;
+  margin-top: 10px;
 }
 
-.restartButton { 
-    margin-top: 10%;
-    background-color: #cd81da;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
+.restartButton {
+  margin-top: 10%;
+  background-color: #cd81da;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .restartButton:hover {
-    background-color: #92d6ed;
+  background-color: #92d6ed;
 }
 
 .typed-correct {
-    color: white;
+  color: white;
   font-size: 32px;
 }
 
@@ -140,35 +142,37 @@ nav a {
 }
 
 .typed-incorrect {
-    color: #ca4754;
+  color: #ca4754;
   font-size: 32px;
-  
+
 }
 
 footer {
-    background: #000000;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
+  background: #000000;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
 }
 
 @media screen and (max-width: 768px) {
+
   .typed-correct,
-    .typed-grey,
-    .typed-incorrect,
-    .typed-cursor {
-        font-size: 15px;
-}
-    .container {
-        padding: 10px;
-    }
-    
-    .sentence {
-        font-size: 20px; 
-    }
+  .typed-grey,
+  .typed-incorrect,
+  .typed-cursor {
+    font-size: 15px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .sentence {
+    font-size: 20px;
+  }
 }
