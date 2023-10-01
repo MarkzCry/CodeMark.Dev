@@ -11,6 +11,8 @@ body, h1, h2, p {
     padding: 0;
 }
 
+
+
 header {
     background: #000000;
     color: white;
@@ -21,7 +23,6 @@ header {
 header h1 {
     font-size: 2rem;
 }
-
 nav ul {
     list-style: none;
 }
@@ -37,67 +38,81 @@ nav a {
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 20px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    flex-wrap: wrap;
 }
 
-.about-me {
+.section1 {
+    max-height: 17vh;
     background-color: white;
+    text-align: center;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     flex: 1;
-    text-align: center;
-    margin-left: 20px;
-}
-
-.portrait-slideshow {
-    max-width: 200px; /* Adjust the width as needed */
     margin-top: 20px;
-    position: relative;
+    margin-right: 25px;
+    margin-left: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.portrait-slide {
-    max-width: 100%;
-    max-height: 300px;
-    height: auto;
-    display: none;
-    padding-left: 100px;
+.section1 p {
+    font-size: 20px;
+}
+.iconImage {
+    margin-top: 10px;
+    max-width: 300px;
+    border-radius: 20px;
 }
 
-.portrait-slide:first-child {
-    display: block;
+.section2 {
+    background-color: white;
+    text-align: left;
+    padding: 20px;
+    flex: 1;
+    margin-top: 20px;
+    margin-right: 50px;
+    margin-left: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
 }
-
-.portrait-arrow {
-    background-color: transparent;
-    color: black;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 30px;
+.section2 h2 {
     text-align: center;
 }
 
-.portrait-arrow.prev {
-    left: 0;
+.section2 p {
+    margin-left: 10px;
+    font-size: 20px;
 }
 
-.portrait-arrow.next {
-    right: 0;
+.sheader {
+    text-align: left;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
-.portrait-arrow:hover {
-    color: #333;
+.buttonLinks {
+    font-size: 20px;
+    background: #91cfe3;
+    background-size: 200% 100%;
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+.buttonLinks:hover {
+    background-color: #6fa9bd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.oneLink {
+    display: flex;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 footer {
@@ -109,4 +124,27 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .section1 {
+        width: 50%;
+        flex: 1 0 50%;
+        margin-right: 50px;
+    }
+
+    .iconImage {
+        max-width: 0px;
+    }
+
+    footer {
+        position: relative;
+    }
+    .section2 {
+        width: 50%; 
+        flex: 1 0 50%;
+        margin-left: 50px;
+    }
+
+    
 }
