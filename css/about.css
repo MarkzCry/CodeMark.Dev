@@ -58,11 +58,6 @@ nav a {
 .section1 p {
     font-size: 20px;
 }
-.iconImage {
-    margin-top: 10px;
-    max-width: 300px;
-    border-radius: 20px;
-}
 
 .section2 {
     background-color: white;
@@ -131,10 +126,6 @@ footer {
         width: 50%;
         flex: 1 0 50%;
         margin-right: 50px;
-    }
-
-    .iconImage {
-        max-width: 0px;
     }
 
     footer {
