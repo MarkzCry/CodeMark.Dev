@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Open+Sans:400,700&display=swap">
     <meta property="og:title" content="CodeMark">
-    <meta property="og:description" content="About Markel">
+    <meta property="og:description" content="About Codemark.app and other pages">
     <meta property="og:image" content="images/cat-icon.jpg">
     <meta property="og:url" content="https://codemark.app/about">
 </head>
@@ -31,61 +31,43 @@
         </nav>
     </header>
     <div class="container">
-        <!-- About Me Section -->
-        <div class="about-me">
-            <h2>About Me</h2>
-            <p>Welcome to my website! I'm Markel, and I'm passionate about coding and creating awesome projects.</p>
-            <p>Feel free to explore my portfolio and contact me if you have any questions or opportunities.</p>
-        </div>
-        <!-- Portrait Slideshow (right side) -->
-        <div class="portrait-slideshow">
-            <img class="portrait-slide" src="img2.JPG" alt="Portrait 1">
-            <img class="portrait-slide" src="img1.JPG" alt="Portrait 2">
-            <!-- Add more images for additional slides -->
-        </div>
-        <button class="portrait-arrow prev" onclick="changePortraitSlide(-1)">&#8249;</button>
-        <button class="portrait-arrow next" onclick="changePortraitSlide(1)">&#8250;</button>
+    <div class="section1">
+    <h2>About</h2>
+    <p>This website was made to host my projects and portfolio.</p>
+    <p>Feedback would be much appreciated: <a href="https://forms.gle/4M2yyDkxeeKbzxRg7">Feedback Form</a></p>
+</div>
+    <div class="section2">
+        <h2>Pages</h2>
+        <h1 class="sheader">Hacks</h1>
+    <div class="oneLink">
+        <button class="buttonLinks" onclick="window.location.href='gimkit-hack'">Gimkit Hack</button>
+        <p>Instrucitons on how to hack gimkit in chrome.</p>
     </div>
-    <script>
-        // JavaScript code for the portrait image slideshow (right side)
-        const portraitSlides = document.querySelectorAll(".portrait-slide");
-        const prevPortraitArrow = document.querySelector(".portrait-arrow.prev");
-        const nextPortraitArrow = document.querySelector(".portrait-arrow.next");
-
-        let currentPortraitSlide = 0;
-
-        function showPortraitSlide(slideIndex) {
-            portraitSlides.forEach((img, index) => {
-                if (index === slideIndex) {
-                    img.style.display = "block";
-                } else {
-                    img.style.display = "none";
-                }
-            });
-        }
-
-        function changePortraitSlide(step) {
-            currentPortraitSlide += step;
-            if (currentPortraitSlide < 0) {
-                currentPortraitSlide = portraitSlides.length - 1;
-            } else if (currentPortraitSlide >= portraitSlides.length) {
-                currentPortraitSlide = 0;
-            }
-            showPortraitSlide(currentPortraitSlide);
-        }
-
-        // Initial display of portrait slide
-        showPortraitSlide(currentPortraitSlide);
-
-        // Arrow button click events for portrait slideshow
-        prevPortraitArrow.addEventListener("click", () => {
-            changePortraitSlide(-1); // Go to the previous portrait slide
-        });
-
-        nextPortraitArrow.addEventListener("click", () => {
-            changePortraitSlide(1); // Go to the next portrait slide
-        });
-    </script>
+    <div class="oneLink">
+        <button class="buttonLinks" onclick="window.location.href='blooket-hack'">Blooket Hack</button>
+        <p>Instrucitons on how to hack blooket within the dev console</p>
+    </div>
+        <h1 class="sheader">Games</h1>
+        <div class="oneLink">
+        <button class="buttonLinks" onclick="window.location.href='typetest'">Typing Game</button>
+        <p>Test your typing speed and accuracy.</p>
+    </div>
+    <div class="oneLink">
+        <button class="buttonLinks" onclick="window.location.href='games/snake'">Snake Game</button>
+        <p>A fun snake game.</p>
+    </div>
+    <h1 class="sheader">Tools</h1>
+    <div class="oneLink">
+        <button class="buttonLinks" onclick="window.location.href='youtube-downloader'">Youtube Downloader</button>
+        <p>Download youtube videos in mp3 and mp4 format (broken)</p>
+    </div>
+    <h1 class="sheader">Other Pages</h1>
+    <div class="oneLink">
+        <button class="buttonLinks" onclick="window.location.href='youtube'">Youtube Videos</button>
+        <p>Displays the last 3 latest videos</p>
+    </div>
+    </div>
+    </div>
     <footer>
         <p>&copy; Markel R.</p>
     </footer>
