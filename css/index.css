@@ -1,5 +1,5 @@
-/* Common styles for both versions */
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -7,20 +7,32 @@ html, body {
     background: linear-gradient(to bottom right, #92d6ed, #cd81da);
 }
 
-body, h1, h2, p {
+body,
+h1,
+h2,
+p {
     margin: 0;
     padding: 0;
 }
 
 header {
+    display: flex;
+    align-items: center;
     background: #000000;
     color: white;
     text-align: center;
     padding: 1rem;
 }
 
+header img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
 header h1 {
     font-size: 2rem;
+    margin: 0;
 }
 
 nav ul {
@@ -36,8 +48,10 @@ nav a {
     color: white;
     text-decoration: none;
 }
+nav a:hover {
+    text-decoration: underline;
+}
 
-/* Styles specific to PC version */
 main {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -52,7 +66,6 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Style CodeMark Links section */
 .links {
     list-style: none;
     padding: 20px;
@@ -64,33 +77,34 @@ main {
 .links li {
     margin: 10px 0;
     display: flex;
-    align-items: center; /* Align text and icons vertically */
+    align-items: center;
 }
 
 .links a {
     color: #333;
-    margin-left: 10px; /* Add space between icon and text */
+    margin-left: 10px;
 }
 
 .links img {
-    width: 20px; /* Adjust icon size as needed */
+    width: 20px;
 }
 
-/* Style Snapchat section */
 .snapchat {
-    margin-top: 20px; /* Add space between CodeMark Links and Snapchat section */
-    text-align: center; /* Center text */
+    margin-top: 20px;
+    text-align: center;
 }
 
 .snapchat img {
     max-width: 50%;
     height: auto;
-    display: block; /* Center the image horizontally */
-    margin: 10px auto; /* Add space around the QR code */
+    display: block;
+    margin: 10px auto;
 }
 
-/* twitter Section */
-.twitter-widget {
+.youtube-widget {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     list-style: none;
     padding: 20px;
     background: white;
@@ -99,22 +113,51 @@ main {
     margin-bottom: 20px;
 }
 
+.youtube-widget h2 {
+    text-align: center;
+}
+
+.video-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.youtube-widget button {
+    font-size: 20px;
+    background: #91cfe3;
+    background-size: 200% 100%;
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+.youtube-widget button:hover {
+    background-color: #6fa9bd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+
 .contact-info li {
     margin: 10px 0;
     display: flex;
-    align-items: center; /* Align text and icons vertically */
+    align-items: center;
 }
 
 .contact-info a {
     color: #333;
-    margin-left: 10px; /* Add space between icon and text */
+    margin-left: 10px;
 }
 
 .contact-info img {
-    width: 20px; /* Adjust icon size as needed */
+    width: 20px;
 }
 
-/* Add space between CodeMark Links and Contact Info section */
 .links {
     margin-bottom: 20px;
 }
@@ -124,43 +167,48 @@ footer {
     color: white;
     text-align: center;
     padding: 1rem;
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1; /* Ensure it's above the rest of the content */
+    position: relative;
+    margin-top: 20px;
 }
 
-/* CSS for YouTube button */
 footer a {
-    margin-top: 10px; /* Add space between the text and the button */
-    display: inline-block; /* Make the button inline */
-    background-color: #FF0000; /* YouTube red */
+    display: inline-block;
+    background-color: #FF0000;
     color: white;
     text-align: center;
-    padding: 10px 20px; /* Adjust padding as needed */
+    padding: 10px 20px;
     border-radius: 5px;
     text-decoration: none;
-    transition: background-color 0.3s ease; /* Smooth background color transition on hover */
+    transition: background-color 0.3s ease;
 }
 
 footer a:hover {
-    background-color: #CC0000; /* Darker red on hover */
+    background-color: #CC0000;
 }
 
 /* Mobile Styles */
 @media (max-width: 768px) {
     main {
         padding: 20px;
-        display: block; /* Change display to block for mobile */
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
     }
 
     .content,
     .links,
-    .snapchat,
-    .twitter-widget,
     .contact-info {
-        margin: 10px 0; /* Adjust spacing for mobile version */
+        margin: 10px;
+    }
+
+    .snapchat {
+        order: 1;
+        list-style: none;
+        padding: 20px;
+        background: white;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 10px;
     }
 
     .snapchat img {
@@ -168,5 +216,15 @@ footer a:hover {
         height: auto;
         display: block;
         margin: 10px auto;
+    }
+
+    .youtube-widget {
+        order: 2;
+        margin: 10px;
+    }
+
+    .youtube-widget iframe {
+        width: 100%;
+        height: auto;
     }
 }
