@@ -19,11 +19,19 @@ p {
 }
 
 header {
+  display: flex;
+  align-items: center;
   background: #000000;
   color: white;
   text-align: center;
   padding: 1rem;
-  margin-bottom: 10px;
+  margin-bottom: 100px;
+}
+
+header img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
 }
 
 header h1 {
@@ -43,6 +51,10 @@ nav a {
   color: white;
   text-decoration: none;
 }
+nav a:hover {
+  text-decoration: underline;
+}
+
 
 .content {
   background-color: #323437;
