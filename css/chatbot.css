@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #92d6ed, #cd81da);
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background: #000000;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 20px;
+}
+
+header img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.chat-container {
+    background-color: #353740;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    height: 500px;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    min-height: 40vh;
+    width: 55%;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.chat-header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 1.5rem;
+}
+
+.message {
+    margin-bottom: 8px;
+}
+
+.chat {
+    font-size: large;
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: scroll;
+    color: white;
+}
+
+.user-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #40414f;
+}
+
+input[type="text"] {
+    height: 15px;
+    color: white;
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    background-color: #40414f;
+    outline: none;
+}
+
+input::placeholder {
+    color: #8b8b9c;
+}
+
+.message.error {
+    color: red;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+footer {
+    background: #000000;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+
+  @media (max-width: 768px) {
+    .chat-container {
+        width: 90%;
+    }
+  }
