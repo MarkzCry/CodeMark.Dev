@@ -58,7 +58,7 @@ function callPopcatChatbot(userMessage) {
     // Display "AI is typing..."
     addMessage('AI', 'AI is typing...');
 
-    fetch(`https://chatbot-server.codemarkapp.repl.co/getAiResponse?msg=${encodeURIComponent(userMessage)}&owner=Code+Mark&botname=CodeMark+Bot`)
+    fetch(`https://api.popcat.xyz/chatbot?msg=${encodeURIComponent(userMessage)}&owner=Code+Mark&botname=CodeMark+Bot`)
         .then(response => response.json())
         .then(data => {
             console.log('API Response:', data);
