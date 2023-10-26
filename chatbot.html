@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ChatBot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/C-Icon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Open+Sans:400,700&display=swap">
+    <meta property="og:title" content="ChatBot">
+    <meta property="og:description" content="Talk to a ChatBot">
+    <meta property="og:image" content="images/cat-icon.jpg">
+    <meta property="og:url" content="https://codemark.app">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <title>AI Chat</title>
+</head>
+<body>
+    <header>
+        <img src="images/C-Icon.png" alt="Icon" width="50" height="50">
+        <h1>ChatBot</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="tools">Tools</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="chat-container">
+        <div class="chat-header">CodeMark's ChatBot</div>
+        <div class="chat" id="chat">
+            
+        </div>
+        <div class="user-input">
+            <input type="text" id="user-message" placeholder="Type a message...">
+            <button id="send-button">Send</button>
+            <div id="timer-display"></div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; Markel R.</p>
+    </footer>
+</body>
+<script src="javascript/chatbot.js"></script>
+</html>
