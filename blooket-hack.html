@@ -71,7 +71,7 @@ fetch('hacks/bookmark.html')
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'bookmark.html';
+        a.download = 'bookmarks.html';
         a.style.display = 'none';
         document.body.appendChild(a);
         a.click();
