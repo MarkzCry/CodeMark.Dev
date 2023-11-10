@@ -12,14 +12,23 @@ body, h1, h2, p {
 }
 
 header {
+    display: flex;
+    align-items: center;
     background: #000000;
     color: white;
     text-align: center;
     padding: 1rem;
 }
 
+header img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
 header h1 {
     font-size: 2rem;
+    margin: 0;
 }
 
 nav ul {
@@ -34,6 +43,9 @@ nav ul li {
 nav a {
     color: white;
     text-decoration: none;
+}
+nav a:hover {
+    text-decoration: underline;
 }
 
 .container {
@@ -56,16 +68,30 @@ nav a {
     text-align: center;
     margin-left: 20px;
     margin-bottom: 20px;
-    max-length: 1000px;
 }
 
+.content img {
+    flex: 2;
+}
 .content h2 {
     padding-top: 20px;
 }
 
-.copy-icon {
-  width: 20px;
-  height: 20px;
+button {
+    font-size: 20px;
+    background: #91cfe3;
+    background-size: 200% 100%;
+    color: black;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+}
+button:hover {
+    background-color: #6fa9bd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: white;
 }
 
 footer {
