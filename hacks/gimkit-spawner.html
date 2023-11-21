@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gimkit-Spawner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/C-Icon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Open+Sans:400,700&display=swap">
+    <meta property="og:title" content="Gimkit-Spawner">
+    <meta property="og:description" content="Spawn bots in GimKit">
+    <meta property="og:image" content="images/cat-icon.jpg">
+    <meta property="og:url" content="https://codemark.app/hacks/gimkit-spawner">
+    <link rel="stylesheet" href="css/gimkitSpawn.css">
+</head>
+<body>
+  <header>
+    <img src="images/C-Icon.png" alt="Icon" width="50" height="50">
+    <h1>Gimkit-Spawner</h1>
+    <nav>
+        <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="about">About</a></li>
+            <li><a href="tools">Tools</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="gimkitStuff">
+  <h1>Gimkit-Spawner</h1>
+  <form id="botForm">
+    <label for="gameID">Game ID:</label>
+    <input type="text" id="gameID" name="gameID" autocomplete="off" required><br><br>
+    
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" autocomplete="off" required><br><br>
+    
+    <label for="names">Names (separated by commas):</label>
+    <textarea id="names" name="names" placeholder="Example: dog,cat,mouse" autocomplete="off" required></textarea><br><br>
+    
+    <button type="submit">Spawn Bots</button>
+  </form>
+</div>
+  <div id="consoleOutput"></div>
+  <script>
+    async function fetchConsoleOutput() {
+      try {
+        const response = await fetch('https://gimkitspawnerserver.codemarkapp.repl.co/console-output');
+        const consoleText = await response.text();
+        const consoleOutput = document.getElementById('consoleOutput');
+        consoleOutput.innerText = consoleText;
+  
+        // Scroll to the bottom
+        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+      } catch (error) {
+        console.error('Error fetching console output:', error);
+      }
+    }
+  
+    fetchConsoleOutput();
+    setInterval(fetchConsoleOutput, 5000);
+  
+    document.getElementById('botForm').addEventListener('submit', async function(event) {
+      event.preventDefault();
+  
+      const gameID = document.getElementById('gameID').value;
+      const amount = document.getElementById('amount').value;
+      const names = document.getElementById('names').value.split(',');
+  
+      try {
+        const response = await fetch('https://gimkitspawnerserver.codemarkapp.repl.co/incoming-data', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ gameID, amount, names })
+        });
+  
+        // Handle response from server if needed
+        const data = await response.json();
+        console.log('Server response:', data);
+  
+        // Fetch console output after submitting the form
+        fetchConsoleOutput();
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    });
+  </script>
+</body>
+</html>

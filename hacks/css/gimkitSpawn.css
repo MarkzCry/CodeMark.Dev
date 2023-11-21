@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #92d6ed, #cd81da);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Change to min-height for content to push the footer down */
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background: #000000;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+header img {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.gimkitStuff {
+    text-align: center;
+    max-width: 600px;
+    margin: 80px auto 20px; /* Adjust margin to create space below header */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for text input */
+input[type="text"],
+input[type="number"],
+textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+/* Style for the button */
+button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+#consoleOutput {
+    background-color: #000;
+    color: #00FF00;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: auto; /* Adjust margin as needed */
+    margin-right: auto; /* Adjust margin as needed */
+    max-width: 500px; /* Set maximum width */
+    width: 100%; /* Full width by default */
+    font-family: 'Courier New', monospace;
+    border-radius: 5px;
+    height: 250px;
+    overflow-y: auto;
+    line-height: 1.5;
+}
+#consoleOutput::-webkit-scrollbar {
+    display: none;
+}
+/* Your existing CSS styles */
+
+/* Media query for responsive layout */
+@media (max-width: 767px) {
+    .alignColumnOnMobile {
+        display: flex;
+        flex-direction: column;
+        }
+    .gimkitStuff {
+        display: block; /* Stack elements vertically */
+    }
+
+    #botForm,
+    #consoleOutput {
+        width: 100%; /* Take full width */
+    }
+}
+
+@media (min-width: 768px) {
+    /* Adjust the layout for larger screens (e.g., tablets and desktops) */
+    .alignColumnOnMobile {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .gimkitStuff {
+        width: calc(50% - 10px);
+    }
+
+    #consoleOutput {
+        width: calc(50% - 10px);
+    }
+}
+
