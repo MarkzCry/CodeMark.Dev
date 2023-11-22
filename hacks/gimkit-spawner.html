@@ -51,7 +51,7 @@
   <script>
     async function fetchConsoleOutput() {
       try {
-        const response = await fetch('https://gimkitspawnerserver.codemarkapp.repl.co/console-output');
+        const response = await fetch('https://codemarkserver1.codemarkapp.repl.co/console-output');
         const consoleText = await response.text();
         const consoleOutput = document.getElementById('consoleOutput');
         consoleOutput.innerText = consoleText;
@@ -74,7 +74,7 @@
       const names = document.getElementById('names').value.split(',');
   
       try {
-        const response = await fetch('https://gimkitspawnerserver.codemarkapp.repl.co/incoming-data', {
+        const response = await fetch('https://codemarkserver1.codemarkapp.repl.co/incoming-data', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
