@@ -1,5 +1,9 @@
 // Prompt for user's name when the page loads
-const username = prompt('Please enter your name:');
+let username = prompt('Please enter your name:');
+
+if(username == null) {
+  username = "User"
+}
 // You might want to add validation to ensure a valid username is entered
 
 // Function to display messages in the chat UI with the associated username
