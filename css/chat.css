@@ -1,45 +1,137 @@
 /* styles.css */
 
-/* Chat container */
+/* Reset default styles */
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(to bottom right, #92d6ed, #cd81da);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+header {
+  display: flex;
+  align-items: center;
+  background: #000000;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+header img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+/* Set a background color and font family */
+body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+
+/* Center the chat container */
 .chat-container {
-    width: 80%;
-    margin: 20px auto;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Style the chat header */
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Style the chat title */
+.chat-header h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+/* Style the theme toggle button */
+#theme-toggle {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style the chat messages container */
+.chat-messages {
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 20px;
+  height: 400px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+/* Style the message input */
+#message-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* Style the send button */
+#send-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#all-messages {
+  margin-bottom: 3px;
+  font-size: 20px;
+}
+
+/* Media queries for responsive design */
+@media screen and (min-width: 768px) {
+  /* Increase font size on bigger screens */
+  .chat-header h1 {
+    font-size: 32px;
   }
   
-  /* Chat messages */
-  .chat-messages {
-    height: 300px;
-    overflow-y: auto;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
+  /* Adjust chat container width */
+  .chat-container {
+    max-width: 800px;
   }
-  
-  /* Message input */
-  #message-input {
-    width: calc(100% - 70px);
-    padding: 8px;
-    border-radius: 5px 0 0 5px;
-    border: 1px solid #ccc;
-  }
-  
-  /* Send button */
-  #send-btn {
-    width: 60px;
-    padding: 8px;
-    border: none;
-    border-radius: 0 5px 5px 0;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  #send-btn:hover {
-    background-color: #0056b3;
-  }
-  
+}
