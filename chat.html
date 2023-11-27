@@ -11,13 +11,31 @@
   gtag('config', 'G-VME2034EP0');
 </script>
   <meta charset="UTF-8">
-  <title>Chat App</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+ <title>Chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="images/C-Icon.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Open+Sans:400,700&display=swap">
+  <meta property="og:title" content="Chat">
+  <meta property="og:description" content="Chat with people">
+  <meta property="og:image" content="images/cat-icon.jpg">
+  <meta property="og:url" content="https://codemark.app/chat">
   <link rel="stylesheet" href="css/chat.css">
 </head>
+<header>
+  <img src="images/C-Icon.png" alt="Icon" width="50" height="50">
+  <h1>Chat</h1>
+  <nav>
+      <ul class="menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="about">About</a></li>
+          <li><a href="tools">Tools</a></li>
+      </ul>
+  </nav>
+</header>
 <body>
   <div class="chat-container">
-    <div class="chat-messages" id="chat-messages"></div>
+    <div class="chat-messages" id="chat-messages">
+    </div>
     <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off">
     <button id="send-btn">Send</button>
   </div>
