@@ -56,7 +56,7 @@ function addMessage(sender, message) {
 
 function callPopcatChatbot(userMessage) {
     // Display "AI is typing..."
-    addMessage('AI', 'AI is typing...');
+    addMessage('AI', 'AI is thinking...');
 
     fetch(`https://codemarkserver1.codemarkapp.repl.co/getAiResponse?msg=${encodeURIComponent(userMessage)}`)
         .then(responseAI => responseAI.json())
@@ -71,7 +71,6 @@ function callPopcatChatbot(userMessage) {
             if (aiResponse && aiResponse.trim() !== '') {
                 typeResponse('AI', aiResponse);
                 setTimeout(() => {
-                    receivedSound.play()
                     isMessageEnabled = true;
                 }, 1000)
             } else {
@@ -81,6 +80,7 @@ function callPopcatChatbot(userMessage) {
         })
         .catch(error => {
             console.error('Error fetching AI response:', error);
+            addMessage('AI', "Sorry, I couldn't generate a response.");
         });
 }
 
@@ -99,5 +99,5 @@ function typeResponse(sender, message) {
         }
         // Automatically scroll to the bottom of the chat container
         chatContainer.scrollTop = chatContainer.scrollHeight;
-    }, 50); // Adjust typing speed as needed
+    }, 6); // Adjust typing speed as needed
 }
