@@ -1,61 +1,42 @@
-let currentVideoIndex = 0;
+async function fetchAndDisplayLatestShout() {
+    try {
+        const response = await fetch('https://codemarkserver1.codemarkapp.repl.co/getShouts');
+        const data = await response.json();
 
-// Function to fetch and display a specific YouTube video
-function fetchYouTubeVideo(videoIndex) {
-    const apiKey = 'AIzaSyAzuAVUpgUc6tRubt88MY18cRMZb77M3qo'; // Replace with your YouTube Data API key
-    const channelId = 'UCgYpekHvMJ9w4BH3nxXxf3Q'; // Replace with your desired channel ID
-    const videoContainer = document.getElementById('youtube-video-container');
+        console.log('Fetched data:', data);
 
-    // Construct the API URL to fetch videos in reverse chronological order
-    const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=10`;
+        const shoutContainer = document.querySelector('.shout-container');
 
-    // Fetch the video data
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            const videos = data.items;
-            const totalVideos = videos.length;
+        if (data && data.shouts && data.shouts.length > 0) {
+            const latestShout = data.shouts[data.shouts.length - 1];
+            const shoutItem = document.createElement('div');
+            shoutItem.classList.add('shout-item');
 
-            if (videoIndex < 0) {
-                videoIndex = 0; // Ensure we don't go below the first video
-            } else if (videoIndex >= totalVideos) {
-                videoIndex = totalVideos - 1; // Ensure we don't go beyond the last video
-            }
+            const textWithLineBreaks = latestShout.text ? latestShout.text.replace(/\n/g, '<br>') : 'No text available';
 
-            const video = videos[videoIndex];
-            const videoTitle = video.snippet.title;
-            const videoDescription = video.snippet.description;
-            const videoId = video.id.videoId;
-
-            const videoElement = document.createElement('div');
-            videoElement.classList.add('video');
-            videoElement.innerHTML = `
-                <h3>${videoTitle}</h3>
-                <p>${videoDescription}</p>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>
+            shoutItem.innerHTML = `
+                <p class="shout-text"><strong>${textWithLineBreaks}</strong></p>
+                <p class="shout-link">${latestShout.link ? `<a href="${latestShout.link}" target="_blank">${latestShout.link}</a>` : ''}</p>
+                ${latestShout.imageLink ? `<img class="shout-image" src="${latestShout.imageLink}" alt="Shout Image">` : ''}
             `;
-
-            // Clear the existing video and add the new video
-            videoContainer.innerHTML = '';
-            videoContainer.appendChild(videoElement);
-
-            // Update the current video index
-            currentVideoIndex = videoIndex;
-        })
-        .catch(error => console.error('Error fetching YouTube video:', error));
+            shoutContainer.innerHTML = '';
+            shoutContainer.appendChild(shoutItem);
+        } else {
+            shoutContainer.innerHTML = '<p>No shouts available.</p>';
+        }
+    } catch (error) {
+        console.error('Error fetching shouts:', error);
+    }
 }
 
-// Function to handle the "Previous Video" button click
-document.getElementById('prev-video').addEventListener('click', () => {
-    fetchYouTubeVideo(currentVideoIndex - 1);
-});
+window.addEventListener('DOMContentLoaded', fetchAndDisplayLatestShout);
 
-// Function to handle the "Next Video" button click
-document.getElementById('next-video').addEventListener('click', () => {
-    fetchYouTubeVideo(currentVideoIndex + 1);
-});
+document.addEventListener('DOMContentLoaded', function() {
+    const shoutEmbed = document.querySelector('.shout-embed');
 
-// Call the fetchRecentYouTubeVideo function when the page loads
-window.addEventListener('load', () => {
-    fetchYouTubeVideo(currentVideoIndex);
+    if (shoutEmbed) {
+        shoutEmbed.addEventListener('click', function() {
+            window.location.href = 'tools/shouts';
+        });
+    }
 });
