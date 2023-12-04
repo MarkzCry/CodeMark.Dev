@@ -72,6 +72,7 @@ main {
     background: white;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-height: 275px;
 }
 
 .links li {
@@ -90,7 +91,6 @@ main {
 }
 
 .snapchat {
-    margin-top: 20px;
     text-align: center;
 }
 
@@ -101,47 +101,53 @@ main {
     margin: 10px auto;
 }
 
-.youtube-widget {
+.shout-embed {
     display: flex;
     flex-direction: column;
-    align-items: center;
     list-style: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
     padding: 20px;
-    background: white;
-    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.youtube-widget h2 {
-    text-align: center;
-}
-
-.video-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-}
-
-.youtube-widget button {
-    font-size: 20px;
-    background: #91cfe3;
-    background-size: 200% 100%;
-    color: black;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
 }
 
-.youtube-widget button:hover {
-    background-color: #6fa9bd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    color: white;
+.shout-embed h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
 }
 
+.shout-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+.shout-image {
+    margin-top: 10px;
+    width: 80%;
+    height: auto;
+}
+
+.shout-item:last-child {
+    border-bottom: none;
+}
+
+.shout-text {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.shout-link {
+    font-size: 14px;
+    color: #007bff;
+}
+
+.shout-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
 
 .contact-info li {
     margin: 10px 0;
@@ -160,6 +166,20 @@ main {
 
 .links {
     margin-bottom: 20px;
+}
+
+.shout-embed,
+.content,
+.links,
+.snapchat {
+    transition: transform 0.3s ease-in-out;
+}
+
+.shout-embed:hover,
+.content:hover,
+.links:hover,
+.snapchat:hover {
+    transform: scale(1.035);
 }
 
 footer {
@@ -193,6 +213,13 @@ footer a:hover {
         display: flex;
         flex-direction: column;
         margin-bottom: 10px;
+    }
+
+    .shout-embed {
+        text-align: center;
+    }
+    .shout-image {
+        max-width: 85%;
     }
 
     .content,
