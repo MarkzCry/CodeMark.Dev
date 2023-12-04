@@ -30,13 +30,3 @@ async function fetchAndDisplayLatestShout() {
 }
 
 window.addEventListener('DOMContentLoaded', fetchAndDisplayLatestShout);
-
-document.addEventListener('DOMContentLoaded', function() {
-    const shoutEmbed = document.querySelector('.shout-embed');
-
-    if (shoutEmbed) {
-        shoutEmbed.addEventListener('click', function() {
-            window.location.href = 'tools/shouts';
-        });
-    }
-});
