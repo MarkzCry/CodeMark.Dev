@@ -63,6 +63,9 @@ button#darkModeToggle img {
 .dark-mode .container a{
     color: #b5bac1;
 }
+.dark-mode .snapchat {
+    background: none;
+}
 * {
     margin: 0;
     padding: 0;
