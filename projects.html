@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Projects</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <link rel="stylesheet" href="css/projects.css">
+  <link rel="icon" type="image/png" href="images/C-Icon.png">
+  <meta property="og:title" content="Projects">
+    <meta property="og:description" content="A display of CodeMark projects.">
+    <meta property="og:image" content="images/cat-icon.jpg">
+    <meta property="og:url" content="https://codemark.app/projects">
+</head>
+<body>
+  <header>
+    <img src="images/C-Icon.png" alt="Icon" width="50" height="50">
+    <h1>Projects</h1>
+    <nav>
+        <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="projects">Projects</a></li>
+            <li><a href="tools/shouts">Shouts</a></li>
+        </ul>
+    </nav>
+    <button id="darkModeToggle" onclick="toggleDarkMode()">
+      <img src="images/nightIcon.png" alt="Dark Mode Toggle Icon" id="darkModeIcon">
+    </button>
+</header>
+  <div class="container" id="projectContainer">
+  </div>
+  <div class="content">
+    <div class="section1">
+      <h2>About Me</h2>
+      <p>Im a full stack web developer, and this website hosts all my projects.</p>
+  </div>
+  <div class="section2">
+    <h2>Info</h2>
+    <p>Feedback/Suggetions would be much appreciated: <a href="https://forms.gle/4M2yyDkxeeKbzxRg7">Feedback Form</a></p>
+</div>
+</section>
+</div>
+  <script src="javascript/projects.js"></script>
+  <script>
+    function toggleDarkMode() {
+  const body = document.body;
+  body.classList.toggle('dark-mode');
+
+  const isDarkMode = body.classList.contains('dark-mode');
+  localStorage.setItem('darkMode', isDarkMode);
+}
+
+function applyDarkModePreference() {
+  const isDarkMode = JSON.parse(localStorage.getItem('darkMode'));
+  const body = document.body;
+
+  if (isDarkMode) {
+    body.classList.add('dark-mode');
+  } else {
+    body.classList.remove('dark-mode');
+  }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  applyDarkModePreference();
+});
+    function generateProjectHTML(project) {
+      return `
+        <div class="projectBox">
+          <div class="projectHeader">
+            <img src="${project.icon}" alt="Project Icon" class="projectIcon">
+            <h2>${project.name}</h2>
+            <button class="buttonToggle" onclick="toggleDescription(this)">+</button>
+          </div>
+          <div class="projectDetails" style="display: none;">
+            <p>${project.description}</p>
+            <button class="buttonTry" onclick="window.open('${project.link}', '_blank')">Try Project</button>
+          </div>
+        </div>
+      `;
+    }
+
+    function toggleDescription(button) {
+    const projectDetails = button.parentNode.nextElementSibling;
+    if (projectDetails) {
+      if (projectDetails.style.display === "none" || projectDetails.style.display === "") {
+        projectDetails.style.display = "block";
+        button.textContent = "-";
+      } else {
+        projectDetails.style.display = "none";
+        button.textContent = "+";
+      }
+    }
+  }
+
+    function displayProjectsByCategory() {
+      const projectContainer = document.getElementById('projectContainer');
+      if (projectContainer) {
+        const projectsData = window.projectsData;
+        const projectsByCategory = {};
+        projectsData.forEach(project => {
+          if (!projectsByCategory[project.category]) {
+            projectsByCategory[project.category] = [];
+          }
+          projectsByCategory[project.category].push(project);
+        });
+        for (const category in projectsByCategory) {
+          const categorySection = document.createElement('section');
+          categorySection.innerHTML = `<h1>${category}</h1>`;
+
+          projectsByCategory[category].forEach(project => {
+            const projectHTML = generateProjectHTML(project);
+            categorySection.innerHTML += projectHTML;
+          });
+
+          projectContainer.appendChild(categorySection);
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', displayProjectsByCategory);
+  </script>
+</body>
+</html>
