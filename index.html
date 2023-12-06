@@ -13,7 +13,7 @@
     <title>CodeMark</title>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3348672962924321"
      crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <link rel="icon" type="image/png" href="images/C-Icon.png">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Open+Sans:400,700&display=swap">
@@ -26,18 +26,21 @@
 <body>
     <header>
         <img src="images/C-Icon.png" alt="Icon" width="50" height="50">
-        <h1>Markel R.</h1>
+        <h1>CodeMark</h1>
         <nav>
             <ul class="menu">
                 <li><a href="/">Home</a></li>
-                <li><a href="about">About</a></li>
-                <li><a href="tools">Tools</a></li>
+                <li><a href="projects">Projects</a></li>
+                <li><a href="tools/shouts">Shouts</a></li>
             </ul>
         </nav>
+        <button id="darkModeToggle" onclick="toggleDarkMode()">
+          <img src="images/nightIcon.png" alt="Dark Mode Toggle Icon" id="darkModeIcon">
+        </button>
     </header>
     <main>
         <section class="shout-embed">
-            <h2><a href="tools/shouts">📢 CodeMark Message/Shout 📢</h2>
+            <h1><a href="tools/shouts">📢 CodeMark Message/Shout 📢</h1>
             <div class="shout-container">
                 <div class="shout-item">
                     <div class="shout-content">
@@ -80,11 +83,8 @@
                 </li>
             </ul>
         </section>
-        <section class="content">
-            <h2>About Me</h2>
-            <p>I'm a 15-year-old coder proficient in JavaScript, HTML, CSS, Lua, and Python, and a YouTube teacher. My website serves as a hub for coding resources, showcasing scripts, and hosting my educational videos. You can find me on various social media platforms for updates and discussions. I've also created practical tools for daily use. My goal is to inspire and educate fellow coding enthusiasts, fostering a supportive community to learn and innovate together. </p>
-        </section>
-        
+        <section id="projectContainer" class="container">
+        <h1>Popular <a href="projects">Projects</a></h1>
         </section>
         <section class="snapchat">
             <h2>Snapchat</h2>
@@ -101,13 +101,83 @@
      data-ad-slot="9188815688"
      data-ad-format="auto"
      data-full-width-responsive="true"></ins>
+     <script src="javascript/projects.js"></script>
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
+
+     function toggleDarkMode() {
+  const body = document.body;
+  body.classList.toggle('dark-mode');
+
+  const isDarkMode = body.classList.contains('dark-mode');
+  localStorage.setItem('darkMode', isDarkMode);
+}
+
+function applyDarkModePreference() {
+  const isDarkMode = JSON.parse(localStorage.getItem('darkMode'));
+  const body = document.body;
+
+  if (isDarkMode) {
+    body.classList.add('dark-mode');
+  } else {
+    body.classList.remove('dark-mode');
+  }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  applyDarkModePreference();
+});
+     function generateProjectHTML(project) {
+  return `
+    <div class="projectBox" data-name="${project.name}">
+      <div class="projectHeader">
+        <img src="${project.icon}" alt="Project Icon" class="projectIcon">
+        <h2>${project.name}</h2>
+        <button class="buttonToggle" onclick="toggleDescription(this)">+</button>
+      </div>
+      <div class="projectDetails" style="display: none;">
+        <p>${project.description}</p>
+        <button class="buttonTry" onclick="window.open('${project.link}', '_blank')">Try Project</button>
+      </div>
+    </div>
+  `;
+}
+
+function toggleDescription(button) {
+  const projectDetails = button.parentNode.nextElementSibling;
+  if (projectDetails) {
+    if (projectDetails.style.display === "none" || projectDetails.style.display === "") {
+      projectDetails.style.display = "block";
+      button.textContent = "-";
+    } else {
+      projectDetails.style.display = "none";
+      button.textContent = "+";
+    }
+  }
+}
+
+function displaySelectedProjects() {
+  const projectContainer = document.getElementById('projectContainer');
+
+  if (projectContainer) {
+    const projectsData = window.projectsData;
+    const selectedProjects = ["Gimkit Hack", "Chat"];
+
+    selectedProjects.forEach(projectName => {
+      const project = projectsData.find(proj => proj.name === projectName);
+      if (project) {
+        const projectHTML = generateProjectHTML(project);
+        projectContainer.innerHTML += projectHTML;
+      }
+    });
+  }
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+  displaySelectedProjects();
+});
+
 </script>
-    <footer>
-        <p>&copy; Markel R.</p>
-    </footer>
-    
 
 </html>
 </body>
