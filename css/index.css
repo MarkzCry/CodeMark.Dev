@@ -230,6 +230,12 @@ main {
     border-bottom: none;
 }
 
+.shout-time {
+    font-size: 13px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
 .shout-text {
     font-size: 16px;
     margin-bottom: 10px;
