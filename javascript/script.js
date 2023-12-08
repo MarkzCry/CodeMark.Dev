@@ -10,30 +10,53 @@ window.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
+    function formatDate(timestamp) {
+        const date = new Date(timestamp);
+        const localDate = new Date(date.getTime() + (date.getTimezoneOffset() * 60000));
+        const monthNames = [
+            'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+            'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+        ];
+        const month = monthNames[localDate.getMonth()];
+        const day = localDate.getDate();
+        const suffix = (day === 1 || day === 21 || day === 31) ? 'st' :
+            (day === 2 || day === 22) ? 'nd' :
+            (day === 3 || day === 23) ? 'rd' : 'th';
+        const formattedDay = `${day}${suffix}`;
+        const year = localDate.getFullYear();
+        const hours = localDate.getHours();
+        const minutes = localDate.getMinutes();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        const formattedHours = hours % 12 === 0 ? 12 : hours % 12;
+        const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+        const formattedDate = `${month} ${formattedDay}, ${year} | (${formattedHours}:${formattedMinutes} ${ampm})`;
+
+        return formattedDate;
+    }
+
     try {
         const response = await fetch('https://codemarkserver1.codemarkapp.repl.co/getShouts');
         const data = await response.json();
 
         console.log('Fetched data:', data);
-
         const shoutContainer = document.querySelector('.shout-container');
 
         if (data && data.shouts && data.shouts.length > 0) {
             const latestShout = data.shouts[data.shouts.length - 1];
+            const formattedTime = formatDate(latestShout.time);
             const shoutItem = document.createElement('div');
             shoutItem.classList.add('shout-item');
 
             const textWithLineBreaks = latestShout.text ? latestShout.text.replace(/\n/g, '<br>') : 'No text available';
 
             shoutItem.innerHTML = `
+                <p class="shout-time"><strong>${formattedTime}</strong></p>
                 <p class="shout-text"><strong>${textWithLineBreaks}</strong></p>
                 <p class="shout-link">${latestShout.link ? `<a href="${latestShout.link}" target="_blank">${latestShout.link}</a>` : ''}</p>
                 ${latestShout.imageLink ? `<img class="shout-image" src="${latestShout.imageLink}" alt="Shout Image">` : ''}
             `;
             shoutContainer.innerHTML = '';
             shoutContainer.appendChild(shoutItem);
-
-            // Trigger 'load' event on the image after setting the 'src' attribute
             const newImg = shoutItem.querySelector('.shout-image');
             newImg.onload = () => {
                 const newAspectRatio = newImg.naturalWidth / newImg.naturalHeight;
