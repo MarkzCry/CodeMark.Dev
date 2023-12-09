@@ -20,85 +20,61 @@
         <nav>
             <ul class="menu">
                 <li><a href="/">Home</a></li>
-                <li><a href="../about">About</a></li>
-                <li><a href="../tools">Tools</a></li>
+                <li><a href="../projects">Projects</a></li>
+                <li><a href="shouts">Shouts</a></li>
             </ul>
         </nav>
+        <button id="darkModeToggle" onclick="toggleDarkMode()">
+            <img src="../images/nightIcon.png" alt="Dark Mode Toggle Icon" id="darkModeIcon">
+        </button>
     </header>
-    <form id="shoutForm" autocomplete="off">
+    <form id="shoutForm" enctype="multipart/form-data">
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" autocomplete="off" required><br><br>
-        
+        <input placeholder="Super secret password" type="password" id="password" name="password" required><br><br>
+
         <label for="text">Text:</label>
-        <textarea id="text" name="text" rows="4" maxlength="550" cols="50" required></textarea><br><br>
+        <textarea placeholder="Random shout message" id="text" name="text" rows="4" maxlength="550" cols="50"
+            required></textarea><br><br>
         <span id="characterCount">550/550</span>
-    
-        <label for="link">Link:</label>
-        <input type="text" id="link" name="link" autocomplete="off"><br><br>
-    
-        <label for="image">Image Link (optional):</label>
-        <input type="text" id="image" name="imageLink" autocomplete="off"><br><br>
-    
+
+        <label for="link">Link (optional):</label>
+        <input placeholder="https://codemark.app" type="text" id="link" name="link" autocomplete="off"><br><br>
+
+        <label for="imageFile">Upload Image (optional):</label>
+        <input type="file" id="imageFile" name="imageFile" accept="image/*"><br><br>
+
         <input type="submit" value="Post Shout">
     </form>
-    
 
+    <div id="popupSuccess" class="popup">
+        ✅ Shout posted successfully! ✅
+    </div>
+    <div id="popupUnauthorized" class="popup">
+        ❌ Unauthorized (Password) ❌
+    </div>
+    <script src="javascript/post.js"></script>
     <script>
-        const textArea = document.getElementById('text');
-        const characterCount = document.getElementById('characterCount');
-        
-        textArea.addEventListener('input', function() {
-            const maxLength = parseInt(textArea.getAttribute('maxlength'));
-            const currentLength = textArea.value.length;
-            const remaining = maxLength - currentLength;
-            
-            characterCount.textContent = remaining + '/' + maxLength;
-            
-            if (remaining < 0) {
-                characterCount.style.color = 'red'; // Change color if exceeding limit
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+
+            const isDarkMode = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+
+        function applyDarkModePreference() {
+            const isDarkMode = JSON.parse(localStorage.getItem('darkMode'));
+            const body = document.body;
+
+            if (isDarkMode) {
+                body.classList.add('dark-mode');
             } else {
-                characterCount.style.color = 'black';
+                body.classList.remove('dark-mode');
             }
-        });
-        textArea.addEventListener('input', function() {
-            if (this.value.length > 550) {
-                this.value = this.value.slice(0, 550);
-            }
-        });
-        document.getElementById('shoutForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
+        }
 
-            const text = document.getElementById('text').value;
-            const link = document.getElementById('link').value;
-            const imageLink = document.getElementById('image').value;
-            const password = document.getElementById('password').value;
-
-            const shoutData = {
-                text: text,
-                link: link,
-                imageLink: imageLink,
-                password: password
-            };
-
-            try {
-                const response = await fetch('https://codemarkserver1.codemarkapp.repl.co/postShout', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(shoutData)
-                });
-
-                if (response.ok) {
-                    alert('Shout posted successfully!');
-                } else {
-                    throw new Error('Failed to post shout');
-                }
-            } catch (error) {
-                console.error('Error posting shout:', error);
-                alert('Unauthorized');
-            }
-
+        window.addEventListener('DOMContentLoaded', () => {
+            applyDarkModePreference();
         });
     </script>
 </body>
