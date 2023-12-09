@@ -29,237 +29,70 @@
         <nav>
             <ul class="menu">
                 <li><a href="/">Home</a></li>
-                <li><a href="../about">About</a></li>
-                <li><a href="../tools">Tools</a></li>
+                <li><a href="../projects">Projects</a></li>
                 <li><a href="post">Post</a></li>
             </ul>
         </nav>
+        <button id="darkModeToggle" onclick="toggleDarkMode()">
+          <img src="../images/nightIcon.png" alt="Dark Mode Toggle Icon" id="darkModeIcon">
+        </button>
     </header>
     <div id="shoutList">
     </div>
+    <div id="shoutModal" onclick="closeShoutModal()">
+        <div class="modal-content">
+        </div>
+    </div>
     <div id="modal">
     </div>
+<script src="javascript/shouts.js"></script>
+<script>
+    function toggleDarkMode() {
+  const body = document.body;
+  body.classList.toggle('dark-mode');
 
-    <script>
-        let shoutsData;
-        let currentIndex = 0;
-        const shoutsPerPage = 3;
-        let currentShoutId = '';
+  const isDarkMode = body.classList.contains('dark-mode');
+  localStorage.setItem('darkMode', isDarkMode);
+}
 
-        function showDeleteConfirmation(shoutId) {
-            currentShoutId = shoutId;
+function applyDarkModePreference() {
+  const isDarkMode = JSON.parse(localStorage.getItem('darkMode'));
+  const body = document.body;
 
-            const deleteForm = document.createElement('div');
-            deleteForm.className = 'delete-form';
-            deleteForm.innerHTML = `
-                <form id="deleteForm" onsubmit="submitDeleteForm(event, '${shoutId}')">
-                    <p>Are you sure you want to delete this shout?</p>
-                    <input type="password" id="deletePassword" placeholder="Enter password" autocomplete="off">
-                    <button type="submit">Confirm Delete</button>
-                    <button type="button" onclick="hideModal()">Cancel</button>
-                </form>
-            `;
+  if (isDarkMode) {
+    body.classList.add('dark-mode');
+  } else {
+    body.classList.remove('dark-mode');
+  }
+}
 
-            document.getElementById('modal').innerHTML = '';
-            document.getElementById('modal').appendChild(deleteForm);
-            document.getElementById('modal').style.display = 'block';
-        }
-        async function submitDeleteForm(event, id) {
-            event.preventDefault();
-            const password = document.getElementById('deletePassword').value;
+window.addEventListener('DOMContentLoaded', () => {
+  applyDarkModePreference();
+});
+function openShoutModal(shout) {
+    const shoutModal = document.getElementById('shoutModal');
+    const modalContent = document.querySelector('.modal-content');
+    modalContent.innerHTML = shout.innerHTML;
+    shoutModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    const editButton = document.querySelector('.modal-content .edit-button');
+const deleteButton = document.querySelector('.modal-content .delete-button');
 
-            if (!password) {
-                console.log('Password required.');
-                return;
-            }
+if (editButton) {
+    editButton.remove();
+}
 
-            hideModal();
+if (deleteButton) {
+    deleteButton.remove();
+}
 
-            deleteShout(id, password);
-        }
-        function showEditForm(id) {
-            currentShoutId = id;
-
-            const editForm = document.createElement('div');
-            editForm.className = 'edit-form';
-            editForm.innerHTML = `
-                <form id="editForm" onsubmit="submitEditForm(event, '${id}')">
-                    <textarea id="editText" placeholder="Enter text" maxlength="550"></textarea>
-                    <span id="characterCount">550/550</span>
-<input type="text" id="editLink" placeholder="Enter link (optional)" autocomplete="off">
-<input type="text" id="editImageLink" placeholder="Enter image link (optional)" autocomplete="off">
-<input type="password" id="editPassword" placeholder="Enter password" autocomplete="off">
-
-                    <button type="submit">Submit</button>
-                    <button type="button" onclick="hideModal()">Cancel</button>
-                </form>
-            `;
-
-            document.getElementById('modal').innerHTML = '';
-            document.getElementById('modal').appendChild(editForm);
-            document.getElementById('modal').style.display = 'block';
-            const textArea = document.getElementById('editText');
-            textArea.addEventListener('input', updateCharacterCount);
-        }
-        async function submitEditForm(event, id) {
-            event.preventDefault();
-            const password = document.getElementById('editPassword').value;
-            const updatedText = document.getElementById('editText').value;
-            const updatedLink = document.getElementById('editLink').value;
-            const updatedImageLink = document.getElementById('editImageLink').value;
-
-            if (!password) {
-                console.log('Password required.');
-                return;
-            }
-
-            hideModal();
-
-            editShout(id, password, updatedText, updatedLink, updatedImageLink);
-        }
-
-        async function deleteShout(id, password) {
-            try {
-                const response = await fetch(`https://codemarkserver1.codemarkapp.repl.co/deleteShout`, {
-                    method: 'DELETE',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ password, id }),
-                });
-
-                const data = await response.json();
-                console.log('Shout deleted:', data);
-                fetchAndDisplayShouts();
-            } catch (error) {
-                console.error('Error deleting shout:', error);
-            }
-        }
-
-        async function editShout(id, password, updatedText, updatedLink, updatedImageLink) {
-            try {
-                const response = await fetch(`https://codemarkserver1.codemarkapp.repl.co/editShout`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ text: updatedText, link: updatedLink, imageLink: updatedImageLink, password, id }),
-                });
-
-                const data = await response.json();
-                console.log('Shout updated:', data);
-                fetchAndDisplayShouts();
-            } catch (error) {
-                console.error('Error editing shout:', error);
-            }
-        }
-
-        async function fetchAndDisplayShouts() {
-            try {
-                const response = await fetch('https://codemarkserver1.codemarkapp.repl.co/getShouts');
-                shoutsData = await response.json();
-
-                console.log('Fetched data:', shoutsData);
-                displayShouts();
-            } catch (error) {
-                console.error('Error fetching shouts:', error);
-                alert('Failed to fetch shouts. Please try again.');
-            }
-        }
-
-        function displayShouts() {
-            const shoutList = document.getElementById('shoutList');
-            shoutList.innerHTML = '';
-
-            if (shoutsData && shoutsData.shouts && shoutsData.shouts.length > 0) {
-                const reversedShouts = shoutsData.shouts.slice().reverse();
-                const reversedSubset = reversedShouts.slice(currentIndex, currentIndex + shoutsPerPage);
-
-                reversedSubset.forEach(shout => {
-                    const shoutItem = document.createElement('div');
-                    shoutItem.className = 'shout-item';
-                    shoutItem.innerHTML = `
-                        <p><strong>Text:</strong> ${shout.text || 'No text available'}</p>
-                        <p><strong>Link:</strong> ${shout.link ? `<a href="${shout.link}" target="_blank">${shout.link}</a>` : 'No link available'}</p>
-                        <p><strong>Image:</strong> ${shout.imageLink ? `<img src="${shout.imageLink}" alt="Shout Image">` : 'No image available'}</p>
-                        <button onclick="showModal('${shout._id}', 'edit')">Edit</button>
-                        <button onclick="showModal('${shout._id}', 'delete')">Delete</button>
-                    `;
-                    shoutList.appendChild(shoutItem);
-                });
-
-                if (currentIndex > 0) {
-                    const buttonContainer = document.createElement('div');
-                    buttonContainer.className = 'button-container';
-                    const showPreviousButton = document.createElement('button');
-                    showPreviousButton.className = 'show-more-button';
-                    showPreviousButton.textContent = 'Show Previous';
-                    showPreviousButton.onclick = showPreviousShouts;
-                    buttonContainer.appendChild(showPreviousButton);
-                    shoutList.appendChild(buttonContainer);
-                }
-
-                if (currentIndex + shoutsPerPage < reversedShouts.length) {
-                    const buttonContainer = document.createElement('div');
-                    buttonContainer.className = 'button-container';
-                    const showNextButton = document.createElement('button');
-                    showNextButton.className = 'show-more-button';
-                    showNextButton.textContent = 'Show Next';
-                    showNextButton.onclick = showNextShouts;
-                    buttonContainer.appendChild(showNextButton);
-                    shoutList.appendChild(buttonContainer);
-                }
-            } else {
-                shoutList.innerHTML = '<p>No shouts available.</p>';
-            }
-        }
-
-        function showPreviousShouts() {
-            currentIndex -= shoutsPerPage;
-            if (currentIndex < 0) {
-                currentIndex = 0;
-            }
-            displayShouts();
-        }
-
-        function showNextShouts() {
-            currentIndex += shoutsPerPage;
-            displayShouts();
-        }
-        function updateCharacterCount() {
-            const textArea = document.getElementById('editText');
-            const characterCount = document.getElementById('characterCount');
-
-            if (textArea && characterCount) {
-                const maxLength = parseInt(textArea.getAttribute('maxlength'));
-                const currentLength = textArea.value.length;
-                const remaining = maxLength - currentLength;
-
-                characterCount.textContent = remaining + '/' + maxLength;
-
-                if (remaining < 0) {
-                    characterCount.style.color = 'red'; // Change color if exceeding limit
-                } else {
-                    characterCount.style.color = 'black';
-                }
-            } else {
-                console.error("Textarea or character count element not found.");
-            }
-        }
-        window.addEventListener('DOMContentLoaded', fetchAndDisplayShouts);
-        function showModal(shoutId, action) {
-            currentShoutId = shoutId;
-            if (action === 'edit') {
-                showEditForm(shoutId);
-            } else if (action === 'delete') {
-                showDeleteConfirmation(shoutId);
-            }
-        }
-        function hideModal() {
-            document.getElementById('modal').style.display = 'none';
-        }
-    </script>
-
+}
+function closeShoutModal() {
+    const shoutModal = document.getElementById('shoutModal');
+    shoutModal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+</script>
 </body>
 
 </html>
