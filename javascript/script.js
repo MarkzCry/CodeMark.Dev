@@ -12,26 +12,23 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     function formatDate(timestamp) {
         const date = new Date(timestamp);
-        const localDate = new Date(date.getTime() + (date.getTimezoneOffset() * 60000));
         const monthNames = [
             'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
             'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
         ];
-        const month = monthNames[localDate.getMonth()];
-        const day = localDate.getDate();
+        const month = monthNames[date.getMonth()];
+        const day = date.getDate();
         const suffix = (day === 1 || day === 21 || day === 31) ? 'st' :
             (day === 2 || day === 22) ? 'nd' :
-            (day === 3 || day === 23) ? 'rd' : 'th';
+                (day === 3 || day === 23) ? 'rd' : 'th';
         const formattedDay = `${day}${suffix}`;
-        const year = localDate.getFullYear();
-        const hours = localDate.getHours();
-        const minutes = localDate.getMinutes();
+        const year = date.getFullYear();
+        const hours = date.getHours();
+        const minutes = ('0' + date.getMinutes()).slice(-2);
         const ampm = hours >= 12 ? 'PM' : 'AM';
         const formattedHours = hours % 12 === 0 ? 12 : hours % 12;
-        const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
-        const formattedDate = `${month} ${formattedDay}, ${year} | (${formattedHours}:${formattedMinutes} ${ampm})`;
-
-        return formattedDate;
+    
+        return `${month} ${formattedDay}, ${year} | (${formattedHours}:${minutes} ${ampm})`;
     }
 
     try {
