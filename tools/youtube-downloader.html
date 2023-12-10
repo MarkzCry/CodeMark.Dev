@@ -1,80 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VME2034EP0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-VME2034EP0');
-</script>
-    <title>YouTube Downloader</title>
-    <link rel="icon" type="image/jpeg" href="cat-icon.jpg">
-    <link rel="stylesheet" href="../css/youtube-downloader.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Open+Sans:400,700&display=swap">
-    <meta property="og:title" content="YouTube Downloader">
-    <meta property="og:description" content="Download YouTube Videos as MP4 and MP3">
-    <meta property="og:image" content="images/youtube.png">
-    <meta property="og:url" content="https://codemark.app/youtube-downloader">
+<head>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'G-VME2034EP0');
+      </script>
+    <meta charset="UTF-8">
+    <title>YT Downloader</title>
+    <link rel="stylesheet" href="css/youtube-downloader.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="icon" type="image/png" href="../images/C-Icon.png">
+    <meta property="og:title" content="YT Downloader">
+    <meta property="og:description" content="Download youtube videos in mp3 or mp4 format">
+    <meta property="og:image" content="../images/cat-icon.jpg">
+    <meta property="og:url" content="https://codemark.app/tools/youtube-downloader">
 </head>
+
 <body>
     <header>
-        <h1>YouTube Downloader</h1>
+        <img src="../images/C-Icon.png" alt="Icon" width="50" height="50">
+        <h1>YT-Downloader</h1>
         <nav>
             <ul class="menu">
                 <li><a href="/">Home</a></li>
-                <li><a href="../about">About</a></li>
-                <li><a href="../tools">Tools</a></li>
+                <li><a href="../projects">Projects</a></li>
+                <li><a href="shouts">Shouts</a></li>
             </ul>
         </nav>
+        <button id="darkModeToggle" onclick="toggleDarkMode()">
+            <img src="../images/nightIcon.png" alt="Dark Mode Toggle Icon" id="darkModeIcon">
+        </button>
     </header>
     <div class="container">
-        <!-- YouTube Downloader Section -->
-        <div class="youtube-downloader">
-            <h2>Download YouTube Videos</h2>
-            <p>Paste the YouTube video URL below and select the format:</p>
-            <input type="text" id="videoUrl" placeholder="Enter YouTube Video URL">
-            <select id="format">
-                <option value="mp4">MP4</option>
-                <option value="mp3">MP3</option>
-            </select>
-            <button id="downloadButton">Download</button>
+        <div class="options">
+            <form>
+                <label>
+                    <strong>Conversion Type</strong>
+                </label>
+                <select class="input-audio-video" id="format">
+                    <option value="audio-only">MP3: Audio only (No video)</option>
+                    <option value="video-only">MP4: Video only (No audio) </option>
+                    <option value="video&audio" selected>MP4: Video and Audio</option>
+                </select>
+                <label>
+                    <strong>Quality</strong>
+                </label>
+                <select id="quality">
+                    <option value="high" selected>Highest</option>
+                    <option value="low">Lowest</option>
+                </select>
+            </form>
+        </div>
+        <div class="input-button">
+            <label>
+                <input class="input-url" placeholder="https://www.youtube.com/watch?v=6aYzu1HXrrU">
+            </label>
+            <button class="button-convert">Convert</button>
+        </div>
+        <div class="status">
+            <h3 id="downloading"></h3>
         </div>
     </div>
+    <script src="javascript/youtube-downloader.js" async defer></script>
     <script>
-        const downloadButton = document.getElementById('downloadButton');
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
 
-        downloadButton.addEventListener('click', () => {
-            const videoUrlInput = document.getElementById('videoUrl');
-            const formatSelect = document.getElementById('format');
-            
-            const videoUrl = videoUrlInput.value;
-            const selectedFormat = formatSelect.value;
-            
-            if (!validate(videoUrl)) {
-                alert("Invalid YouTube URL");
-                return;
+            const isDarkMode = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+
+        function applyDarkModePreference() {
+            const isDarkMode = JSON.parse(localStorage.getItem('darkMode'));
+            const body = document.body;
+
+            if (isDarkMode) {
+                body.classList.add('dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
             }
+        }
 
-            // Construct the download URL and redirect the user
-            const filename = videoUrl.replace(/[^a-zA-Z0-9-_]/g, "_"); // Sanitize filename
-            const downloadUrl = `https://popcat.xyz/download?url=${videoUrl}&filter=${selectedFormat}&filename=${filename}`;
-            
-            // Redirect the user to the download URL
-            window.location.href = downloadUrl;
+        window.addEventListener('DOMContentLoaded', () => {
+            applyDarkModePreference();
         });
-
-        function validate(url) {
-    // A more robust regular expression for YouTube URL validation
-    const ytRegex = /^(?:(?:https?:)?\/\/)?(?:www\.)?(?:m\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?([a-zA-Z0-9_-]{11})/;
-
-    return ytRegex.test(url);
-}
     </script>
-    <footer>
-        <p>&copy; Markel R.</p>
-    </footer>
 </body>
+
 </html>
