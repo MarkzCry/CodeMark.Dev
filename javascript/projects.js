@@ -65,6 +65,13 @@ const projects = [
         icon: "./images/youtube.png"
     },
     {
+        name: "YT Downloader",
+        description: "Download videos in mp3 or mp4 format",
+        link: "../tools/youtube-downloader",
+        category: "Tools",
+        icon: "./images/youtube.png"
+    },
+    {
         name: "Chat",
         description: "Chat with random people, with a random username.",
         link: "../chat",
