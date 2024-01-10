@@ -1,3 +1,4 @@
+const serverEndpoint = "https://77e34fbb-ff4d-417b-afb8-b0e3359aa07a-00-3l9m8oqoi94ju.janeway.replit.dev/"
 window.addEventListener('DOMContentLoaded', async () => {
     const img = document.querySelector('.shout-image');
     img.addEventListener('load', () => {
@@ -32,7 +33,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 
     try {
-        const response = await fetch('https://codemarkserver1.codemarkapp.repl.co/getShouts');
+        const response = await fetch(`${serverEndpoint}getShouts`);
         const data = await response.json();
 
         console.log('Fetched data:', data);
