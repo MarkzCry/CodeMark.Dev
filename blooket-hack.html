@@ -18,9 +18,51 @@
     <meta property="og:description" content="Blooket hack">
     <meta property="og:image" content="images/cat-icon.jpg">
     <meta property="og:url" content="https://codemark.app/blooket-hack">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+    <style>
+        .container {
+            display: none;
+        }
+
+        .slideshow-container {
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .slide {
+            display: none;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,39 +72,155 @@
         <nav>
             <ul class="menu">
                 <li><a href="/">Home</a></li>
-                <li><a href="about">About</a></li>
-                <li><a href="tools">Tools</a></li>
+                <li><a href="projects">Projects</a></li>
+                <li><a href="tools/shouts">Shouts</a></li>
             </ul>
         </nav>
+        <button id="darkModeToggle" onclick="toggleDarkMode()">
+            <img src="images/nightIcon.png" alt="Dark Mode Toggle Icon" id="darkModeIcon">
+        </button>
     </header>
-    <div class="container">
-        <section class="content">
-            <div id="code-container">
-                <h1>Instructions</h1>
-                <h2>Download Blooket Hacks</h2>
-            <button id="downloadButton">Download Bookmarks</button>
-                <p>Then</p>
-                <img class="bookImg" src="images/bookOne.png" alt="Icon" width="200" height="auto">
-                <p>Then</p>
-                <img class="bookImg" src="images/bookTwo.png" alt="Icon" width="auto" height="300">
-                <p>Then</p>
-                <img class="bookImg" src="images/bookThree.png" alt="Icon" width="auto" height="150">
-                <p>Then</p>
-                <img class="bookImg" src="images/bookFour.png" alt="Icon" width="150" height="auto">
-                <p>Then</p>
-                <img class="bookImg" src="images/bookFive.png" alt="Icon" width="500" height="auto">
-                <p>Then it should all show up</p>
-                <img class="bookImg" src="images/bookSix.png" alt="Icon" width="auto" height="400">
-            <p>If you have any questions you can contact me via the discord server: </p> <a href="https://discord.gg/he8Gknu5tx" target="_blank">Discord Server</a>
-            <p>Make sure to subscribe to </p><a href="https://youtube.com/c/CodeMark" target="_blank">CodeMark</a>
-        </section>
+    <div class="container" id="mainContent">
+        <div class="content">
+            <div class="slideshow-container">
+                <div class="slide">
+                    <h1>Getting Started</h1>
+                    <br>
+                <p>Welcome to the Blooket Hack! This simple process will have you up and running in no time. Click "Next" to begin.</p>
+                <img src="images/instructionsIcon.png" alt="Instructions Icon" class="instruction-icon">
+                </div>
+                <div class="slide">
+                    <h2>Step 1: Downloading the Hacks</h2><br>
+                    <p>Click the Download button and it will download the html file</p><br>
+                    <button id="downloadButton">Download</button>
+                </div>
+    
+                <div class="slide">
+                    <h2>Step 2: Finding Bookmark Manager</h2><br>
+                    <ul>
+                        <li>Click on the three dots</li>
+                        <li>Find Bookmarks</li>
+                        <li>Click on Bookmark Manager</li>
+                    </ul><br>
+                    <p>If you're on chrome you can paste <a style="color: white;">chrome://bookmarks</a> into the search bar</p><br>
+                    <img class="bookImg" src="images/bookOne.png" alt="Icon" width="200" height="auto">
+                    <img class="bookImg" src="images/bookTwo.png" alt="Icon" width="auto" height="300">
+                </div>
+    
+                <div class="slide">
+                    <h2>Step 3: Importing</h2><br>
+                    <ul>
+                        <li>Once on the bookmark page click on the three dots</li>
+                        <li>Click on <a style="color: white;">Import Bookmarks</a></li>
+                        <li>Find the bookmarks you just downloaded</li>
+                        <li>Click <a>Open</a></li>
+                    </ul><br>
+                    <img class="bookImg" src="images/bookThree.png" alt="Icon" width="auto" height="150">
+                    <img class="bookImg" src="images/bookFour.png" alt="Icon" width="150" height="auto">
+                    <img class="bookImg" src="images/bookFive.png" alt="Icon" width="500" height="auto">
+                </div>
+
+                <div class="slide">
+                    <h2>Enjoy the Blooket Hack!</h2>
+                <br>
+                <p>Congratulations! You've successfully set up the Blooket Hack. If you ever have questions or need assistance, join our Discord server: <a href="https://discord.gg/he8Gknu5tx" target="_blank">Discord Server</a>.</p>
+                <br>
+                <p>Don't forget to subscribe to <a href="https://youtube.com/c/CodeMark" target="_blank">CodeMark</a> for more exciting content!</p><br>
+                    <img class="bookImg" src="images/bookSix.png" alt="Icon" width="auto" height="400">
+            </div>
+            <a class="prev" onclick="changeSlide(-1)">&#10094; Previous</a>
+            <a class="next" onclick="changeSlide(1)">Next &#10095;</a>
+        </div>
+        </div>
     </div>
-</div>
-    <footer>
-        <p>&copy; Markel R.</p>
-    </footer>
+    
+    <div id="subscriptionModal" class="modal">
+        <div class="modal-content">
+            <p>To view, please subscribe to our YouTube channel.</p>
+            <a href="https://www.youtube.com/c/CodeMark?sub_confirmation=1" target="_blank">
+                <button onclick="subscribe()">Subscribe Now</button>
+            </a>
+        </div>
+    </div>
 </body>
 <script>
+    var currentSlide = 0;
+    showSlide(currentSlide);
+
+    function showSlide(n) {
+        var slides = document.getElementsByClassName("slide");
+
+        if (n >= slides.length) {
+            currentSlide = 0;
+        }
+
+        if (n < 0) {
+            currentSlide = slides.length - 1;
+        }
+
+        for (var i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+
+        slides[currentSlide].style.display = "block";
+    }
+
+    function changeSlide(n) {
+        showSlide(currentSlide += n);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        showSlide(currentSlide);
+    });
+
+    function toggleDarkMode() {
+        const body = document.body;
+        body.classList.toggle('dark-mode');
+
+        const isDarkMode = body.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', isDarkMode);
+    }
+
+    function applyDarkModePreference() {
+        const isDarkMode = JSON.parse(localStorage.getItem('darkMode'));
+        const body = document.body;
+
+        if (isDarkMode) {
+            body.classList.add('dark-mode');
+        } else {
+            body.classList.remove('dark-mode');
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        applyDarkModePreference();
+    });
+
+    function showSubscriptionModal() {
+        var modal = document.getElementById("subscriptionModal");
+        modal.style.display = "block";
+    }
+
+    function closeSubscriptionModal() {
+        var modal = document.getElementById("subscriptionModal");
+        modal.style.display = "none";
+    }
+
+    function showContent() {
+        document.getElementById('mainContent').style.display = 'block';
+    }
+
+    function subscribe() {
+        localStorage.setItem('subscribed', 'true');
+        showContent();
+        closeSubscriptionModal();
+    }
+
+    if (localStorage.getItem('subscribed') === 'true') {
+        showContent();
+    } else {
+        showSubscriptionModal();
+    }
     document.getElementById('downloadButton').addEventListener('click', function() {
 fetch('hacks/bookmark.html')
     .then(response => response.text())
