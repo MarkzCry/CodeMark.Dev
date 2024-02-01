@@ -78,6 +78,13 @@ const projects = [
         category: "Tools",
         icon: "./images/chatIcon.png"
     },
+    {
+        name: "Quizlet Hack",
+        description: "Instructions on how to hack quizlet in chrome.",
+        link: "./quizlet-hack",
+        category: "Hacks",
+        icon: "./images/quizletLogo.png"
+    },
 ];
 
 window.projectsData = projects;
