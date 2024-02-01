@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VME2034EP0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-VME2034EP0');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quizlet-Hack</title>
+    <link rel="icon" type="image/png" href="images/C-Icon.png">
+    <link rel="stylesheet" href="css/gimkit-hack.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Open+Sans:400,700&display=swap">
+    <meta property="og:title" content="Quizlet-Hack">
+    <meta property="og:description" content="Quizlet hack">
+    <meta property="og:image" content="images/cat-icon.jpg">
+    <meta property="og:url" content="https://codemark.app/quizlet-hack">
+
+    <style>
+        .container {
+            display: none;
+        }
+
+        .slideshow-container {
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .slide {
+            display: none;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev {
+            left: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="images/C-Icon.png" alt="Icon" width="50" height="50">
+        <h1>Quizlet-Hack</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="projects">Projects</a></li>
+                <li><a href="tools/shouts">Shouts</a></li>
+            </ul>
+        </nav>
+        <button id="darkModeToggle" onclick="toggleDarkMode()">
+            <img src="images/nightIcon.png" alt="Dark Mode Toggle Icon" id="darkModeIcon">
+        </button>
+    </header>
+
+    <div class="container" id="mainContent">
+        <div class="content">
+        <div class="slideshow-container">
+            <div class="slide">
+                <h1>Getting Started</h1>
+                <br>
+                <p>Welcome to the <a >Quizlet Hack!</a> This simple two-step process will have you up and running in no time. Click "Next" to begin.</p><br>
+                <p>Hack by: <a href="https://github.com/TheLazySquid/QuizletLiveCheat?tab=readme-ov-file" target="_blank">thelazysquid</a></p>
+                <p>Guide by: <a>CodeMark</a></p>
+                <img src="images/instructionsIcon.png" alt="Instructions Icon" class="instruction-icon">
+            </div>
+            
+            <div class="slide">
+                <h2>Step 1: Download Tampermonkey</h2>
+                <br>
+                <p>To modify user scripts, we'll need Tampermonkey. Follow these simple steps:</p>
+                <br>
+                <ul>
+                    <li>Click on this link to install <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en" target="_blank">Tampermonkey</a>.</li>
+                    <li>Add the extension to Chrome.</li>
+                </ul>
+                <br>
+                <p>Once installed, you'll have the power to customize your Quizlet experience!</p>
+            </div>
+            
+            <div class="slide">
+                <h2>Step 2: Install the Quizlet Hack Script</h2>
+                <br>
+                <p>Now that you have Tampermonkey, let's add the Quizlet Hack script:</p>
+                <br>
+                <ul>
+                    <li>Go to this link: <a href="https://raw.githubusercontent.com/TheLazySquid/QuizletLiveCheat/main/build/bundle.user.js" target="_blank">Script</a>.</li>
+                    <li>Click "Install" to add the script to Tampermonkey.</li>
+                    <li>Feel free to reinstall the script if you ever encounter any issues or want to update it.</li>
+                </ul>
+                <br>
+                <p>To open/close the hud, press "\" (backslash) on your keyboard while on Quizlet. It will show various menus, which should be fairly self explanatory.</p>
+            </div>
+            
+            <div class="slide">
+                <h2>Enjoy the Quizlet Hack!</h2>
+                <br>
+                <p>Congratulations! You've successfully set up the Quizlet Hack. If you ever have questions or need assistance, join our Discord server: <a href="https://discord.gg/he8Gknu5tx" target="_blank">Discord Server</a>.</p>
+                <br>
+                <p>Don't forget to subscribe to <a href="https://youtube.com/c/CodeMark" target="_blank">CodeMark</a> for more exciting content!</p>
+            </div>
+
+            <a class="prev" onclick="changeSlide(-1)">&#10094; Previous</a>
+            <a class="next" onclick="changeSlide(1)">Next &#10095;</a>
+        </div>
+    </div>
+    </div>
+
+    <div id="subscriptionModal" class="modal">
+        <div class="modal-content">
+            <p>To view, please subscribe to our YouTube channel.</p>
+            <a href="https://www.youtube.com/c/CodeMark?sub_confirmation=1" target="_blank">
+                <button onclick="subscribe()">Subscribe Now</button>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        var currentSlide = 0;
+        showSlide(currentSlide);
+
+        function showSlide(n) {
+            var slides = document.getElementsByClassName("slide");
+
+            if (n >= slides.length) {
+                currentSlide = 0;
+            }
+
+            if (n < 0) {
+                currentSlide = slides.length - 1;
+            }
+
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slides[currentSlide].style.display = "block";
+        }
+
+        function changeSlide(n) {
+            showSlide(currentSlide += n);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            showSlide(currentSlide);
+        });
+
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+
+            const isDarkMode = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+
+        function applyDarkModePreference() {
+            const isDarkMode = JSON.parse(localStorage.getItem('darkMode'));
+            const body = document.body;
+
+            if (isDarkMode) {
+                body.classList.add('dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            applyDarkModePreference();
+        });
+
+        function showSubscriptionModal() {
+            var modal = document.getElementById("subscriptionModal");
+            modal.style.display = "block";
+        }
+
+        function closeSubscriptionModal() {
+            var modal = document.getElementById("subscriptionModal");
+            modal.style.display = "none";
+        }
+
+        function showContent() {
+            document.getElementById('mainContent').style.display = 'block';
+        }
+
+        function subscribe() {
+            localStorage.setItem('subscribed', 'true');
+            showContent();
+            closeSubscriptionModal();
+        }
+
+        if (localStorage.getItem('subscribed') === 'true') {
+            showContent();
+        } else {
+            showSubscriptionModal();
+        }
+    </script>
+</body>
+
+</html>
