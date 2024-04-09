@@ -3,7 +3,7 @@ const inputURL = document.querySelector('.input-url');
 const format = document.getElementById('format');
 const quality = document.getElementById('quality');
 
-const serverURL = 'https://codemarkserver1.codemarkapp.repl.co';
+const serverURL = 'https://server.codemark.app';
 
 const placeholders = [
     "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
