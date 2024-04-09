@@ -78,7 +78,7 @@ async function submitEditForm(event, id) {
 
 async function deleteShout(id, password) {
     try {
-        const response = await fetch(`https://codemarkserver1.codemarkapp.repl.co/deleteShout`, {
+        const response = await fetch(`https://server.codemark.app/deleteShout`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ async function deleteShout(id, password) {
 
 async function editShout(id, password, updatedText, updatedLink, updatedImageLink) {
     try {
-        const response = await fetch(`https://codemarkserver1.codemarkapp.repl.co/editShout`, {
+        const response = await fetch(`https://server.codemark.app/editShout`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -135,7 +135,7 @@ function formatDate(timestamp) {
 
 async function fetchAndDisplayShouts() {
     try {
-        const response = await fetch('https://codemarkserver1.codemarkapp.repl.co/getShouts');
+        const response = await fetch('https://server.codemark.app/getShouts');
         const shoutsData = await response.json();
 
         if (shoutsData && shoutsData.shouts && shoutsData.shouts.length > 0) {
