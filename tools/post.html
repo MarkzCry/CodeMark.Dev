@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Post Shout</title>
+    <title>Post Blog</title>
     <link rel="stylesheet" href="css/post.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <link rel="icon" type="image/png" href="../images/C-Icon.png">
-    <meta property="og:title" content="Post Shout">
-    <meta property="og:description" content="Post a shout on the CodeMark Website">
+    <meta property="og:title" content="Post Blog">
+    <meta property="og:description" content="Post a blog on the CodeMark Website">
     <meta property="og:image" content="../images/cat-icon.jpg">
     <meta property="og:url" content="https://codemark.app/tools/post">
 </head>
@@ -16,12 +16,12 @@
 <body>
     <header>
         <img src="../images/C-Icon.png" alt="Icon" width="50" height="50">
-        <h1>Post Shout</h1>
+        <h1>Post Blog</h1>
         <nav>
             <ul class="menu">
                 <li><a href="/">Home</a></li>
                 <li><a href="../projects">Projects</a></li>
-                <li><a href="shouts">Shouts</a></li>
+                <li><a href="blogs">Blogs</a></li>
             </ul>
         </nav>
         <button id="darkModeToggle" onclick="toggleDarkMode()">
@@ -33,7 +33,7 @@
         <input placeholder="Super secret password" type="password" id="password" name="password" required><br><br>
 
         <label for="text">Text:</label>
-        <textarea placeholder="Random shout message" id="text" name="text" rows="4" maxlength="550" cols="50"
+        <textarea placeholder="Random blog message" id="text" name="text" rows="4" maxlength="550" cols="50"
             required></textarea><br><br>
         <span id="characterCount">550/550</span>
 
@@ -43,11 +43,11 @@
         <label for="imageFile">Upload Image (optional):</label>
         <input type="file" id="imageFile" name="imageFile" accept="image/*"><br><br>
 
-        <input type="submit" value="Post Shout">
+        <input type="submit" value="Post Blog">
     </form>
 
     <div id="popupSuccess" class="popup">
-        ✅ Shout posted successfully! ✅
+        ✅ Blog posted successfully! ✅
     </div>
     <div id="popupUnauthorized" class="popup">
         ❌ Unauthorized (Password) ❌
