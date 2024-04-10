@@ -285,10 +285,6 @@ strong {
     cursor: pointer;
 }
 
-.blog-container {
-    max-width: 45%;
-}
-
 .blog-container h1 {
     text-align: center;
 }
