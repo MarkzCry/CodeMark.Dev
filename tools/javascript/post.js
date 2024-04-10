@@ -68,7 +68,7 @@ document.getElementById('shoutForm').addEventListener('submit', async (e) => {
     formData.append('timezone', timezone)
 
     try {
-        const response = await fetch('https://codemarkserver1.codemarkapp.repl.co/postShout', {
+        const response = await fetch('https://server.codemark.app/postShout', {
             method: 'POST',
             body: formData
         });
