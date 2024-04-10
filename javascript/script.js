@@ -1,6 +1,6 @@
-const serverEndpoint = "https://77e34fbb-ff4d-417b-afb8-b0e3359aa07a-00-3l9m8oqoi94ju.janeway.replit.dev/"
+const serverEndpoint = "https://server.codemark.app/"
 window.addEventListener('DOMContentLoaded', async () => {
-    const img = document.querySelector('.shout-image');
+    const img = document.querySelector('.blog-image');
     img.addEventListener('load', () => {
         const aspectRatio = img.naturalWidth / img.naturalHeight;
 
@@ -37,25 +37,25 @@ window.addEventListener('DOMContentLoaded', async () => {
         const data = await response.json();
 
         console.log('Fetched data:', data);
-        const shoutContainer = document.querySelector('.shout-container');
+        const shoutContainer = document.querySelector('.blog-item');
 
         if (data && data.shouts && data.shouts.length > 0) {
             const latestShout = data.shouts[data.shouts.length - 1];
             const formattedTime = formatDate(latestShout.time);
             const shoutItem = document.createElement('div');
-            shoutItem.classList.add('shout-item');
+            shoutItem.classList.add('blog-item');
 
             const textWithLineBreaks = latestShout.text ? latestShout.text.replace(/\n/g, '<br>') : 'No text available';
 
             shoutItem.innerHTML = `
-                <p class="shout-time"><strong>${formattedTime}</strong></p>
-                <p class="shout-text"><strong>${textWithLineBreaks}</strong></p>
-                <p class="shout-link">${latestShout.link ? `<a href="${latestShout.link}" target="_blank">${latestShout.link}</a>` : ''}</p>
-                ${latestShout.imageLink ? `<img class="shout-image" src="${latestShout.imageLink}" alt="Shout Image">` : ''}
+                <p class="blog-time"><strong>${formattedTime}</strong></p>
+                <p class="blog-text"><strong>${textWithLineBreaks}</strong></p>
+                <p class="blog-link">${latestShout.link ? `<a style="color: #85beff;" href="${latestShout.link}" target="_blank">${latestShout.link}</a>` : ''}</p>
+                ${latestShout.imageLink ? `<img class="blog-image" src="${latestShout.imageLink}" alt="Shout Image">` : ''}
             `;
             shoutContainer.innerHTML = '';
             shoutContainer.appendChild(shoutItem);
-            const newImg = shoutItem.querySelector('.shout-image');
+            const newImg = shoutItem.querySelector('.blog-image');
             newImg.onload = () => {
                 const newAspectRatio = newImg.naturalWidth / newImg.naturalHeight;
 
@@ -66,9 +66,9 @@ window.addEventListener('DOMContentLoaded', async () => {
                 }
             };
         } else {
-            shoutContainer.innerHTML = '<p>No shouts available.</p>';
+            shoutContainer.innerHTML = '<p>No Blogs available.</p>';
         }
     } catch (error) {
-        console.error('Error fetching shouts:', error);
+        console.error('Error fetching blogs:', error);
     }
 });
