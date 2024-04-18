@@ -25,11 +25,11 @@ const questions = [
   {
     question: "Have you lost interest or pleasure in activities you once enjoyed?",
     options: [
-      { text: "Not at all", score: 0 },
-      { text: "Rarely", score: 1 },
-      { text: "Sometimes", score: 2 },
-      { text: "Often", score: 3 },
-      { text: "Always", score: 4 }
+      { text: "Strongly Disagree", score: 0 },
+      { text: "Disagree", score: 1 },
+      { text: "Neither Agree nor Disagree", score: 2 },
+      { text: "Agree", score: 3 },
+      { text: "Strongly Agree", score: 4 }
     ]
   },
   {
