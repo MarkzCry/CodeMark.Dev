@@ -58,11 +58,11 @@ const projects = [
         icon: "./images/aiIcon.png"
     },
     {
-        name: "Youtube Videos",
-        description: "Displays the last 3 latest videos.",
-        link: "../youtube",
-        category: "Other Pages",
-        icon: "./images/youtube.png"
+        name: "Depression Test",
+        description: "Take a test, to evaluate your depression level.",
+        link: "../test/depression",
+        category: "Tests",
+        icon: "./images/instructionsIcon.png"
     },
     {
         name: "YT Downloader",
