@@ -1,144 +1,282 @@
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom right, #92d6ed, #cd81da);
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", Arial, sans-serif;
+}
+
+.dark-mode {
+    background: #2b2d31;
+    color: #b5bac1;
+}
+
+.dark-mode header {
+    background: #232428;
+}
+
+.dark-mode p {
+    color: #b5bac1;
+}
+
+.dark-mode .menu ul li a {
+    color: #b5bac1;
+}
+
+.dark-mode label {
+    color: #b5bac1
+}
+
+.dark-mode .container,
+.dark-mode .gimkitStuff {
+    background-color: #313338;
+}
+
+.dark-mode #subscriptionModal {
+    background-color: #383a40;
+}
+
+.dark-mode button[type="submit"] {
+    background-color: #92d6ed;
+}
+
+.dark-mode input[type="file"] {
+    background-color: #92d6ed;
+}
+
+.dark-mode textarea {
+    background-color: #383a40;
+    color: #b5bac1;
+    border-color: #383a40;
+}
+
+.dark-mode textarea:focus {
+    border-color: #92d6ed;
+}
+
+.dark-mode input[type="number"] {
+    background-color: #383a40;
+    color: #b5bac1;
+    border-color: #383a40;
+}
+
+.dark-mode input[type="number"]:focus {
+    border-color: #92d6ed;
+}
+
+.dark-mode input[type="text"] {
+    background-color: #383a40;
+    color: #b5bac1;
+    border-color: #383a40;
+}
+
+.dark-mode input[type="text"]:focus {
+    border-color: #92d6ed;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(to bottom right, #92d6ed, #cd81da);
+    min-height: 100vh;
+    user-select: none;
+}
+
+.header {
+    background-color: black;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.header h1 {
+    color: white;
+}
+
+.logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Change to min-height for content to push the footer down */
+    margin-bottom: 10px;
 }
 
-header {
-    display: flex;
-    align-items: center;
-    background: #000000;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    margin-bottom: 20px;
-    position: fixed;
-    top: 0;
-    width: 100%;
+.logo img {
+    max-width: 50px;
+    margin-right: 5px;
 }
 
-header img {
-    width: 40px;
-    height: 40px;
-    margin-left: 10px;
-    margin-right: 10px;
+.logo h1 {
+    margin-left: 5px;
+    font-family: 'Akaya Telivigala', cursive;
 }
 
-header h1 {
-    font-size: 2rem;
-    margin: 0;
+.menu ul {
+    list-style-type: none;
 }
 
-nav ul {
-    list-style: none;
-}
-
-nav ul li {
+.menu ul li {
     display: inline;
     margin-right: 20px;
 }
 
-nav a {
-    color: white;
+.menu ul li a {
     text-decoration: none;
+    color: white;
+    font-size: 16px;
 }
 
-nav a:hover {
-    text-decoration: underline;
+.menu ul li a:hover {
+    color: #9999;
+    transition: color 0.4s ease-in-out;
 }
 
-.gimkitStuff {
-    text-align: center;
-    max-width: 600px;
-    margin: 80px auto 20px; /* Adjust margin to create space below header */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 50px;
+    max-width: 700px;
     padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
+    margin-bottom: 50px;
+    border-radius: 10px 10px 10px 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Style for text input */
+#subscriptionModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+#subscriptionModal p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+#subscriptionModal button {
+    background-color: #ff0000;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+#subscriptionModal button:hover {
+    background-color: #cc0000;
+}
+
+.gimkitStuff {
+    margin: 0px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-right: 25px;
+    max-width: 300px;
+}
+
 input[type="text"],
 input[type="number"],
 textarea {
-    width: calc(100% - 20px);
+    width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
+    max-width: 100%;
+    min-width: 100%;
+    transition: border-color 0.3s ease-in-out;
 }
 
-/* Style for the button */
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #6c63ff;
+}
+
 button[type="submit"] {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
+    background-color: #6c63ff;
+    color: #fff;
     border: none;
+    padding: 12px 20px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
 }
 
 button[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #b3a6e2;
+}
+
+button[type="submit"]:disabled {
+    background-color: #525252;
+    color: #7a7a7a;
 }
 
 #consoleOutput {
     background-color: #000;
     color: #00FF00;
     padding: 10px;
-    margin-top: 20px;
-    margin-left: auto; /* Adjust margin as needed */
-    margin-right: auto; /* Adjust margin as needed */
-    max-width: 500px; /* Set maximum width */
-    width: 100%; /* Full width by default */
+    width: 100%;
     font-family: 'Courier New', monospace;
     border-radius: 5px;
     height: 250px;
     overflow-y: auto;
     line-height: 1.5;
+    margin: 0px;
+    margin-left: 25px;
+    max-width: 300px;
+    margin-top: 25px;
 }
+
 #consoleOutput::-webkit-scrollbar {
     display: none;
 }
-/* Your existing CSS styles */
 
-/* Media query for responsive layout */
+#cooldown {
+    margin-bottom: 10px;
+}
+
 @media (max-width: 767px) {
-    .alignColumnOnMobile {
-        display: flex;
-        flex-direction: column;
-        }
+    .container {
+        display: block;
+        max-width: 80%;
+    }
+
     .gimkitStuff {
-        display: block; /* Stack elements vertically */
+        margin: 0 auto;
+    }
+
+    #consoleOutput {
+        margin: 0 auto;
     }
 
     #botForm,
     #consoleOutput {
-        width: 100%; /* Take full width */
+        width: 100%;
     }
 }
 
-@media (min-width: 768px) {
-    /* Adjust the layout for larger screens (e.g., tablets and desktops) */
-    .alignColumnOnMobile {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .gimkitStuff {
-        width: calc(50% - 10px);
-    }
-
-    #consoleOutput {
-        width: calc(50% - 10px);
-    }
-}
-
+@media (min-width: 768px) {}
