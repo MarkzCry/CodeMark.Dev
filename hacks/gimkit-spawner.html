@@ -1,80 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VME2034EP0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-VME2034EP0');
-</script>
-    <title>Gimkit-Spawner</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="images/C-Icon.png">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Open+Sans:400,700&display=swap">
-    <meta property="og:title" content="Gimkit-Spawner">
-    <meta property="og:description" content="Spawn bots in GimKit">
-    <meta property="og:image" content="../images/cat-icon.jpeg">
-    <meta property="og:url" content="https://codemark.app/hacks/gimkit-spawner">
-    <link rel="stylesheet" href="css/gimkitSpawn.css">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VME2034EP0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-VME2034EP0');
+  </script>
+  <title>Gimkit-Spawner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="images/C-Icon.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Open+Sans:400,700&display=swap">
+  <meta property="og:title" content="Gimkit-Spawner">
+  <meta property="og:description" content="Spawn bots in GimKit">
+  <meta property="og:image" content="../images/cat-icon.jpeg">
+  <meta property="og:url" content="https://codemark.app/hacks/gimkit-spawner">
+  <link rel="stylesheet" href="css/gimkitSpawn.css">
 </head>
+
 <body>
-  <header>
-    <img src="images/C-Icon.png" alt="Icon" width="50" height="50">
-    <h1>Gimkit-Spawner</h1>
-    <nav>
-        <ul class="menu">
-            <li><a href="/">Home</a></li>
-            <li><a href="../about">About</a></li>
-            <li><a href="../tools">Tools</a></li>
-        </ul>
+  <header class="header">
+    <div class="logo">
+      <img src="../images/C-Icon.png" alt="Icon" width="50" height="50">
+      <h1>Gimkit-Spawner</h1>
+    </div>
+    <nav class="menu">
+      <ul>
+        <li><a class="colorize-home" style="color: #85beff;" href="/">Home</a></li>
+        <li><a href="../projects">Projects</a></li>
+        <li><a href="../tools/blog">Blog</a></li>
+        <li><a href="/">Contact Me</a></li>
+        <li><a style="cursor: pointer;" onclick="toggleDarkMode()">Toggle🌓</a></li>
+      </ul>
     </nav>
-</header>
-<div class="gimkitStuff">
-  <h1>Gimkit-Spawner</h1>
-  <form id="botForm">
-    <label for="gameID">Game ID:</label>
-    <input type="text" id="gameID" name="gameID" autocomplete="off" required><br><br>
-    
-    <label for="amount">Amount:</label>
-    <input type="number" id="amount" name="amount" autocomplete="off" required><br><br>
-    
-    <label for="names">Names (separated by commas):</label>
-    <textarea id="names" name="names" placeholder="Example: dog,cat,mouse" autocomplete="off" required></textarea><br><br>
-    
-    <button type="submit">Spawn Bots</button>
-  </form>
-</div>
-  <div id="consoleOutput"></div>
+  </header>
+  <div id="container" class="container" style="display: none;">
+    <div class="gimkitStuff">
+      <h1>Gimkit-Spawner</h1>
+      <form id="botForm">
+        <label for="gameID">Game ID:</label>
+        <input type="text" id="gameID" name="gameID" autocomplete="off" required><br><br>
+
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" autocomplete="off" required><br><br>
+
+        <label for="names">Names (separated by commas):</label>
+        <textarea id="names" name="names" placeholder="Example: dog,cat,mouse" autocomplete="off"
+          required></textarea><br><br>
+        <p id="cooldown">Cooldown: 0s</p>
+        <button id="submitButton" type="submit">Spawn Bots</button>
+      </form>
+    </div>
+    <div id="consoleOutput"></div>
+  </div>
+  <div id="subscriptionModal" class="modal">
+    <div class="modal-content">
+      <p>To view, please subscribe to our YouTube channel.</p>
+      <a href="https://www.youtube.com/c/CodeMark?sub_confirmation=1" target="_blank">
+        <button onclick="subscribe()">Subscribe Now</button>
+      </a>
+    </div>
+  </div>
+
   <script src="../javascript/config.js"></script>
   <script>
+    const submitButton = document.getElementById('submitButton')
+    function toggleDarkMode() {
+      const body = document.body;
+      body.classList.toggle('dark-mode');
+      const isDarkMode = body.classList.contains('dark-mode');
+      localStorage.setItem('darkMode', isDarkMode);
+    }
+
+    function applyDarkModePreference() {
+      const isDarkMode = JSON.parse(localStorage.getItem('darkMode'));
+      const body = document.body;
+      if (isDarkMode) {
+        body.classList.add('dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      applyDarkModePreference();
+    });
+
     const endpoint = window.config.serverEndpoint;
+
     async function fetchConsoleOutput() {
       try {
         const response = await fetch(`${endpoint}console-output`);
         const consoleText = await response.text();
         const consoleOutput = document.getElementById('consoleOutput');
         consoleOutput.innerText = consoleText;
-  
-        // Scroll to the bottom
         consoleOutput.scrollTop = consoleOutput.scrollHeight;
       } catch (error) {
         console.error('Error fetching console output:', error);
       }
     }
-  
+
     fetchConsoleOutput();
     setInterval(fetchConsoleOutput, 5000);
-  
-    document.getElementById('botForm').addEventListener('submit', async function(event) {
+
+    let cooldownTimer;
+
+    document.getElementById('botForm').addEventListener('submit', async function (event) {
       event.preventDefault();
-  
       const gameID = document.getElementById('gameID').value;
-      const amount = document.getElementById('amount').value;
+      let amount = parseInt(document.getElementById('amount').value);
       const names = document.getElementById('names').value.split(',');
-  
+
+      if (amount > 20) {
+        amount = 20;
+        document.getElementById('amount').value = 20;
+      }
+
+      const lastRequestTime = localStorage.getItem('lastRequestTime');
+      const currentTime = Date.now();
+
+      if (lastRequestTime && currentTime - lastRequestTime < 60000) {
+        const remainingCooldown = 60 - Math.floor((currentTime - lastRequestTime) / 1000);
+        return;
+      }
+
       try {
         const response = await fetch(`${endpoint}incoming-data`, {
           method: 'POST',
@@ -83,17 +136,69 @@
           },
           body: JSON.stringify({ gameID, amount, names })
         });
-  
-        // Handle response from server if needed
         const data = await response.json();
         console.log('Server response:', data);
-  
-        // Fetch console output after submitting the form
         fetchConsoleOutput();
+        localStorage.setItem('lastRequestTime', currentTime);
+        startCooldown(60);
       } catch (error) {
         console.error('Error:', error);
       }
     });
+    function startCooldown(duration) {
+      const cooldownElement = document.getElementById('cooldown');
+      submitButton.disabled = true;
+      let remainingTime = duration;
+      cooldownElement.innerText = `Cooldown: ${remainingTime}s`;
+      clearInterval(cooldownTimer);
+      cooldownTimer = setInterval(() => {
+        remainingTime--;
+        cooldownElement.innerText = `Cooldown: ${remainingTime}s`;
+        if (remainingTime <= 0) {
+          clearInterval(cooldownTimer);
+          cooldownElement.innerText = 'Cooldown: 0s';
+          submitButton.disabled = false;
+        }
+      }, 1000);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const lastRequestTime = localStorage.getItem('lastRequestTime');
+      if (lastRequestTime) {
+        const currentTime = Date.now();
+        const elapsedTime = (currentTime - lastRequestTime) / 1000;
+        const remainingCooldown = 60 - elapsedTime;
+        if (remainingCooldown > 0) {
+          startCooldown(Math.floor(remainingCooldown));
+        }
+      }
+    });
+    function showSubscriptionModal() {
+      var modal = document.getElementById("subscriptionModal");
+      modal.style.display = "block";
+    }
+
+    function closeSubscriptionModal() {
+      var modal = document.getElementById("subscriptionModal");
+      modal.style.display = "none";
+    }
+
+    function showContent() {
+      document.getElementById('container').style.display = 'flex';
+    }
+
+    function subscribe() {
+      localStorage.setItem('subscribed', 'true');
+      showContent();
+      closeSubscriptionModal();
+    }
+
+    if (localStorage.getItem('subscribed') === 'true') {
+      showContent();
+    } else {
+      showSubscriptionModal();
+    }
   </script>
 </body>
+
 </html>
