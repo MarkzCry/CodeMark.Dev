@@ -2,229 +2,170 @@
 <html lang="en">
 
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VME2034EP0"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VME2034EP0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'G-VME2034EP0');
-    </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GimKit-Hack</title>
-    <link rel="icon" type="image/png" href="images/C-Icon.png">
-    <link rel="stylesheet" href="css/gimkit-hack.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Open+Sans:400,700&display=swap">
-    <meta property="og:title" content="GimKit-Hack">
-    <meta property="og:description" content="GimKit hack">
-    <meta property="og:image" content="images/cat-icon.jpg">
-    <meta property="og:url" content="https://codemark.app/gimkit-hack">
-
-    <style>
-        .container {
-            display: none;
-        }
-
-        .slideshow-container {
-            max-width: 100%;
-            margin: auto;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .slide {
-            display: none;
-            text-align: center;
-            max-width: 600px;
-        }
-
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            width: auto;
-            margin-top: -22px;
-            padding: 16px;
-            color: white;
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-
-        .prev {
-            left: 0;
-            border-radius: 3px 0 0 3px;
-        }
-
-        .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
-        }
-    </style>
+    gtag('config', 'G-VME2034EP0');
+  </script>
+  <title>Gimkit-Spawner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="images/C-Icon.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Open+Sans:400,700&display=swap">
+  <meta property="og:title" content="Gimkit-Spawner">
+  <meta property="og:description" content="Spawn bots in GimKit">
+  <meta property="og:image" content="../images/cat-icon.jpeg">
+  <meta property="og:url" content="https://codemark.app/hacks/gimkit-spawner">
+  <link rel="stylesheet" href="css/gimkitSpawn.css">
 </head>
 
 <body>
-    <header>
-        <img src="images/C-Icon.png" alt="Icon" width="50" height="50">
-        <h1>Gimkit-Hack</h1>
-        <nav>
-            <ul class="menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="projects">Projects</a></li>
-                <li><a href="tools/shouts">Shouts</a></li>
-            </ul>
-        </nav>
-        <button id="darkModeToggle" onclick="toggleDarkMode()">
-            <img src="images/nightIcon.png" alt="Dark Mode Toggle Icon" id="darkModeIcon">
-        </button>
-    </header>
-
-    <div class="container" id="mainContent">
-        <div class="content">
-        <div class="slideshow-container">
-            <div class="slide">
-                <h1>Getting Started</h1>
-                <br>
-                <p>Welcome to the Gimkit Hack! This simple two-step process will have you up and running in no time. Click "Next" to begin.</p>
-                <img src="images/instructionsIcon.png" alt="Instructions Icon" class="instruction-icon">
-            </div>
-            
-            <div class="slide">
-                <h2>Step 1: Download Tampermonkey</h2>
-                <br>
-                <p>To modify user scripts, we'll need Tampermonkey. Follow these simple steps:</p>
-                <br>
-                <ul>
-                    <li>Click on this link to install <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en" target="_blank">Tampermonkey</a>.</li>
-                    <li>Add the extension to Chrome.</li>
-                </ul>
-                <br>
-                <p>Once installed, you'll have the power to customize your Gimkit experience!</p>
-            </div>
-            
-            <div class="slide">
-                <h2>Step 2: Install the Gimkit Hack Script</h2>
-                <br>
-                <p>Now that you have Tampermonkey, let's add the Gimkit Hack script:</p>
-                <br>
-                <ul>
-                    <li>Go to this link: <a href="https://raw.githubusercontent.com/TheLazySquid/GimkitCheat/main/build/bundle.user.js" target="_blank">Script</a>.</li>
-                    <li>Click "Install" to add the script to Tampermonkey.</li>
-                    <li>Feel free to reinstall the script if you ever encounter any issues or want to update it.</li>
-                </ul>
-                <br>
-                <p>To open/close the hud, press "\" (backslash) on your keyboard while on Gimkit. It will show various menus, which should be fairly self explanatory.</p>
-            </div>
-            
-            <div class="slide">
-                <h2>Enjoy the Gimkit Hack!</h2>
-                <br>
-                <p>Congratulations! You've successfully set up the Gimkit Hack. If you ever have questions or need assistance, join our Discord server: <a href="https://discord.gg/he8Gknu5tx" target="_blank">Discord Server</a>.</p>
-                <br>
-                <p>Don't forget to subscribe to <a href="https://youtube.com/c/CodeMark" target="_blank">CodeMark</a> for more exciting content!</p>
-            </div>
-
-            <a class="prev" onclick="changeSlide(-1)">&#10094; Previous</a>
-            <a class="next" onclick="changeSlide(1)">Next &#10095;</a>
-        </div>
+  <header class="header">
+    <div class="logo">
+      <img src="../images/C-Icon.png" alt="Icon" width="50" height="50">
+      <h1>Gimkit-Spawner</h1>
     </div>
+    <nav class="menu">
+      <ul>
+        <li><a class="colorize-home" style="color: #85beff;" href="/">Home</a></li>
+        <li><a href="../projects">Projects</a></li>
+        <li><a href="../tools/blog">Blog</a></li>
+        <li><a href="/">Contact Me</a></li>
+        <li><a style="cursor: pointer;" onclick="toggleDarkMode()">Toggle🌓</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="container">
+    <div class="gimkitStuff">
+      <h1>Gimkit-Spawner</h1>
+      <form id="botForm">
+        <label for="gameID">Game ID:</label>
+        <input type="text" id="gameID" name="gameID" autocomplete="off" required><br><br>
+
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" autocomplete="off" required><br><br>
+
+        <label for="names">Names (separated by commas):</label>
+        <textarea id="names" name="names" placeholder="Example: dog,cat,mouse" autocomplete="off"
+          required></textarea><br><br>
+        <p id="cooldown">Cooldown: 0s</p>
+        <button id="submitButton" type="submit">Spawn Bots</button>
+      </form>
     </div>
+    <div id="consoleOutput"></div>
+  </div>
+  <script src="../javascript/config.js"></script>
+  <script>
+    const submitButton = document.getElementById('submitButton')
+    function toggleDarkMode() {
+      const body = document.body;
+      body.classList.toggle('dark-mode');
+      const isDarkMode = body.classList.contains('dark-mode');
+      localStorage.setItem('darkMode', isDarkMode);
+    }
 
-    <div id="subscriptionModal" class="modal">
-        <div class="modal-content">
-            <p>To view, please subscribe to our YouTube channel.</p>
-            <a href="https://www.youtube.com/c/CodeMark?sub_confirmation=1" target="_blank">
-                <button onclick="subscribe()">Subscribe Now</button>
-            </a>
-        </div>
-    </div>
+    function applyDarkModePreference() {
+      const isDarkMode = JSON.parse(localStorage.getItem('darkMode'));
+      const body = document.body;
+      if (isDarkMode) {
+        body.classList.add('dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+      }
+    }
 
-    <script>
-        var currentSlide = 0;
-        showSlide(currentSlide);
+    window.addEventListener('DOMContentLoaded', () => {
+      applyDarkModePreference();
+    });
 
-        function showSlide(n) {
-            var slides = document.getElementsByClassName("slide");
+    const endpoint = window.config.serverEndpoint;
 
-            if (n >= slides.length) {
-                currentSlide = 0;
-            }
+    async function fetchConsoleOutput() {
+      try {
+        const response = await fetch(`${endpoint}console-output`);
+        const consoleText = await response.text();
+        const consoleOutput = document.getElementById('consoleOutput');
+        consoleOutput.innerText = consoleText;
+        consoleOutput.scrollTop = consoleOutput.scrollHeight;
+      } catch (error) {
+        console.error('Error fetching console output:', error);
+      }
+    }
 
-            if (n < 0) {
-                currentSlide = slides.length - 1;
-            }
+    fetchConsoleOutput();
+    setInterval(fetchConsoleOutput, 5000);
 
-            for (var i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
+    let cooldownTimer;
 
-            slides[currentSlide].style.display = "block";
-        }
+    document.getElementById('botForm').addEventListener('submit', async function (event) {
+      event.preventDefault();
+      const gameID = document.getElementById('gameID').value;
+      let amount = parseInt(document.getElementById('amount').value);
+      const names = document.getElementById('names').value.split(',');
 
-        function changeSlide(n) {
-            showSlide(currentSlide += n);
-        }
+      if (amount > 20) {
+        amount = 20;
+        document.getElementById('amount').value = 20;
+      }
 
-        document.addEventListener("DOMContentLoaded", function () {
-            showSlide(currentSlide);
+      const lastRequestTime = localStorage.getItem('lastRequestTime');
+      const currentTime = Date.now();
+
+      if (lastRequestTime && currentTime - lastRequestTime < 60000) {
+        const remainingCooldown = 60 - Math.floor((currentTime - lastRequestTime) / 1000);
+        return;
+      }
+
+      try {
+        const response = await fetch(`${endpoint}incoming-data`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ gameID, amount, names })
         });
-
-        function toggleDarkMode() {
-            const body = document.body;
-            body.classList.toggle('dark-mode');
-
-            const isDarkMode = body.classList.contains('dark-mode');
-            localStorage.setItem('darkMode', isDarkMode);
+        const data = await response.json();
+        console.log('Server response:', data);
+        fetchConsoleOutput();
+        localStorage.setItem('lastRequestTime', currentTime);
+        startCooldown(60);
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    });
+    function startCooldown(duration) {
+    const cooldownElement = document.getElementById('cooldown');
+    submitButton.disabled = true;  // Corrected line: disable the button
+    let remainingTime = duration;
+    cooldownElement.innerText = `Cooldown: ${remainingTime}s`;
+    clearInterval(cooldownTimer);
+    cooldownTimer = setInterval(() => {
+        remainingTime--;
+        cooldownElement.innerText = `Cooldown: ${remainingTime}s`;
+        if (remainingTime <= 0) {
+            clearInterval(cooldownTimer);
+            cooldownElement.innerText = 'Cooldown: 0s';
+            submitButton.disabled = false;  // Re-enable the button when cooldown ends
         }
+    }, 1000);
+}
 
-        function applyDarkModePreference() {
-            const isDarkMode = JSON.parse(localStorage.getItem('darkMode'));
-            const body = document.body;
-
-            if (isDarkMode) {
-                body.classList.add('dark-mode');
-            } else {
-                body.classList.remove('dark-mode');
-            }
+    window.addEventListener('DOMContentLoaded', () => {
+      const lastRequestTime = localStorage.getItem('lastRequestTime');
+      if (lastRequestTime) {
+        const currentTime = Date.now();
+        const elapsedTime = (currentTime - lastRequestTime) / 1000;
+        const remainingCooldown = 60 - elapsedTime;
+        if (remainingCooldown > 0) {
+          startCooldown(Math.floor(remainingCooldown));
         }
+      }
+    });
 
-        window.addEventListener('DOMContentLoaded', () => {
-            applyDarkModePreference();
-        });
-
-        function showSubscriptionModal() {
-            var modal = document.getElementById("subscriptionModal");
-            modal.style.display = "block";
-        }
-
-        function closeSubscriptionModal() {
-            var modal = document.getElementById("subscriptionModal");
-            modal.style.display = "none";
-        }
-
-        function showContent() {
-            document.getElementById('mainContent').style.display = 'block';
-        }
-
-        function subscribe() {
-            localStorage.setItem('subscribed', 'true');
-            showContent();
-            closeSubscriptionModal();
-        }
-
-        if (localStorage.getItem('subscribed') === 'true') {
-            showContent();
-        } else {
-            showSubscriptionModal();
-        }
-    </script>
+  </script>
 </body>
 
 </html>
