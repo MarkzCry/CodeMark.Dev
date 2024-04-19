@@ -38,7 +38,7 @@
       </ul>
     </nav>
   </header>
-  <div id="container" class="container" style="display: none;">
+  <div id="container" class="container-none">
     <div class="gimkitStuff">
       <h1>Gimkit-Spawner</h1>
       <form id="botForm">
@@ -184,8 +184,11 @@
     }
 
     function showContent() {
-      document.getElementById('container').style.display = 'flex';
+      var container = document.getElementById('container');
+      container.classList.remove('container-none');
+      container.classList.add('container');
     }
+
 
     function subscribe() {
       localStorage.setItem('subscribed', 'true');
