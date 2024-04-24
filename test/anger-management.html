@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anger Management Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open Sans" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Shadows+Into+Light&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/anger-management.css">
+    <link rel="icon" type="image/png" href="../images/C-Icon.png">
+    <meta property="og:title" content="Anger Management Test">
+    <meta property="og:description" content="Take a test, to evaluate your anger level.">
+    <meta property="og:url" content="https://codemark.app/test/anger-management">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="../images/C-Icon.png" alt="Icon" width="50" height="50">
+            <h1>Anger Management Test</h1>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a class="colorize-home" style="color: #85beff;" href="/">Home</a></li>
+                <li><a href="../projects">Projects</a></li>
+                <li><a href="../tools/blog">Blog</a></li>
+                <li><a href="/">Contact Me</a></li>
+                <li><a style="cursor: pointer;" onclick="toggleDarkMode()">Toggle🌓</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Anger Management Test</h1>
+        <div id="questionContainer">
+            <p id="questionText"></p>
+            <div id="optionsContainer"></div>
+        </div>
+    </div>
+    <form id="getScore">
+        <h1>Enter your Email</h1>
+        <input id="scoreEmail" type="email" placeholder="codemark.app@gmail.com" autocomplete="off" required>
+        <input disabled id="seeScoreButton" type="submit" value="See Score">
+    </form>
+    <div class="score-container" style="display: none;">
+        <h1>Your Results Are<br>Ready!</h1>
+        <div class="score-output">
+            <h1>Anger Management Test Score</h1>
+            <h2 id="scoreOutOf">0/100</h2>
+            <div class="line-container">
+                <div class="line">
+                    <div class="dot" style="left: 0%;">
+                        <span class="score">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ranges">
+                <ul>
+                    <li>
+                        <div class="range">
+                            <div class="inner" id="20-34">20-34</div>
+                        </div>
+                        <div class="separator">—</div>
+                        <div class="label">Excellent Anger Management</div>
+                    </li>
+                    <li>
+                        <div class="range">
+                            <div class="inner" id="35-49">35-49</div>
+                        </div>
+                        <div class="separator">—</div>
+                        <div class="label">Good anger management</div>
+                    </li>
+                    <li>
+                        <div class="range">
+                            <div class="inner" id="50-70">50-70</div>
+                        </div>
+                        <div class="separator">—</div>
+                        <div class="label">Could do better</div>
+                    </li>
+                    <li>
+                        <div class="range">
+                            <div class="inner" id="71-85">71-85</div>
+                        </div>
+                        <div class="separator">—</div>
+                        <div class="label">Struggles with anger</div>
+                    </li>
+                    <li>
+                        <div class="range">
+                            <div class="inner" id="86-100">86-100</div>
+                        </div>
+                        <div class="separator">—</div>
+                        <div class="label">No anger management</div>
+                    </li>
+                </ul>
+                <p>codemark.app/test/anger-management</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/anger-management.js"></script>
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+            const isDarkMode = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+        function applyDarkModePreference() {
+            const isDarkMode = JSON.parse(localStorage.getItem('darkMode'));
+            const body = document.body;
+
+            if (isDarkMode) {
+                body.classList.add('dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            applyDarkModePreference();
+        });
+    </script>
+</body>
+
+</html>
